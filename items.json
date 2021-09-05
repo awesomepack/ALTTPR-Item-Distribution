@@ -1,0 +1,281 @@
+{"item": "Fighter's Sword",
+    "value": "Main",
+    "location": "Hyrule Castle Basment",
+    "description" : "The Fighter's Sword is the first weapon [[Link]] possesses. He receives it from his [[Link's Uncle|Uncle]] in the basement of [[Hyrule Castle (A Link to the Past)|Hyrule Castle]].",
+    
+    "item": "Master Sword",
+    "value": "Main",
+    "location": "Lost Woods",
+    "description":"The Master Sword is found in the [[Lost Woods (A Link to the Past)|Lost Woods]] and is the second sword. Link is able to draw the weapon from its resting place once he has retrieved the three pendants from the [[Eastern Palace (A Link to the Past)|Eastern Palace]], [[Desert Palace (A Link to the Past)|Desert Palace]], and [[Tower of Hera (A Link to the Past)|Tower of Hera]].",
+    
+    "item": "Tempered Sword",
+    "value": "Main",
+    "location": "Dwarven Smithy",
+    "description": "Reunite the [[Dwarven Swordsmiths]] and pay them 10 [[Rupee]]s to temper the sword. Return later to obtain the Tempered Sword.",
+    
+    "item": "Golden Sword",
+    "value": "Main",
+    "location": "Pyramid of Power",
+    "description" : "After obtaining the Tempered Sword and finding the [[Cursed Fairy]] in the [[Pyramid of Power]], Link can throw in the Tempered Sword to receive the Golden Sword upgrade.",
+    
+    "item": "Fighter's Shield",
+    "value": "Main",
+    "location": "Hyrule Castle Basement",
+    "description": "The Fighter's Shield is the first shield acquired in the game, and is received from [[Link's Uncle]].",
+    
+    "item": "Fire Shield", 
+    "value": "Main",
+    "location": "Dark World Shield Shop Or Mysterious Pond", 
+    "description": "The Fire Shield is an upgraded version of the Fighter's Shield, as it can protect Link from small fireballs fired by [[River Zora]]s and other creatures.",
+    
+    "item": "Mirror Shield",
+    "value": "Main",
+    "location": "Turtle Rock",
+    "description": "The Mirror Shield is found in [[Turtle Rock (A Link to the Past)|Turtle Rock]]. It is able to reflect lasers from [[Laser Eye]]s.",
+    
+    "item": "Green Jerkin",
+    "value": "Main",
+    "location": "Already Equipped",
+    "description": "The Green Jerkin is Link's starting [[outfit]], and offers no special protection.",
+    
+    "item": "Blue Mail",
+    "value": "Main",
+    "location": "Ice Palace",
+    "description": "The Blue Mail is the second outfit found, and is located in the [[Ice Palace]]. It reduces the overall damage Link receives by 50%.",
+    
+    "item": "Red Mail",
+    "value": "Main",
+    "location": "Ganon's Tower",
+    "description": "The Red Mail is the third and final outfit, and is located in [[Ganon's Tower (A Link to the Past)|Ganon's Tower]]. It reduces the overall damage Link receives by 75%.",
+    
+    "item": "Pegasus Boots",
+    "value": "Main",
+    "location": "Sahasrahla Hideout",
+    "description": "The Pegasus Boots allow Link to charge at high speeds with his sword, as well as smash certain rocks. They are obtained from [[Sahasrahla (A Link to the Past)|Sahasrahla]] after gaining the [[Pendant of Courage]] in the [[Eastern Palace (A Link to the Past)|Eastern Palace].",
+    
+    "item": "Power Glove",
+    "value": "Main",
+    "location": "Desert Palace",
+    "description": "The Power Gloves allow Link to lift small and large gray stones, and are found in the [[Desert Palace (A Link to the Past)|Desert Palace]].",
+    
+    "item": "Titan's Mitt",
+    "value": "Main",
+    "location": "Gargoyle's Domain",
+    "description": "The Titan's Mitts are the upgraded version of the Power Gloves, allowing Link to lift black rocks. They are acquired in [[Gargoyle's Domain]].",
+    
+    "item": "Zora's Flippers",
+    "value": "Main",
+    "location": "Zora's Waterfall",
+    "description": "Zora's Flippers allow Link to swim in deeper water without drowning. They can be purchased at the hefty price of 500 [[Rupee]]s at [[Zora's Waterfall]].",
+    
+    "item": "Moon Pearl",
+    "value": "Main",
+    "location": "Tower of Hera",
+    "description": "The Moon Pearl enables Link to keep his original form upon entering the [[Dark World]]. It is obtained in the [[Tower of Hera (A Link to the Past)|Tower of Hera]].",
+    
+    "item": "Lamp",
+    "value": "Main",
+    "location": "Link's House",
+    "description": "The Lamp is the first item found in ''[[The Legend of Zelda: A Link to the Past|A Link to the Past]]''. Found in a chest in [[Link's House|Link's house]], it relies on [[Magic Power|magic]] to light candles found in various places.",
+    
+    "item": "Bow",
+    "value": "Main",
+    "location": "Eastern Palace",
+    "description": "The Bow is a projectile weapon found in the [[Eastern Palace (A Link to the Past)|Eastern Palace]]. Link starts out only being able to carry 30 [[arrow]]s, but can carry as many as 70 by donating Rupees at the [[Pond of Happiness].",
+    
+    "item": "Silver Arrow",
+    "value": "Main",
+    "location": "Pyramid of Power",
+    "description": "The Silver Arrows can be found by tossing the bow in the fountain at the [[Pyramid of Power]]. The Silver Arrows are needed to defeat [[Ganon]].",
+    
+    "item": "Bomb",
+    "value": "Main",
+    "location": "Random Chests Over Map",
+    "description": "The Bombs are explosive items that Link can place to damage walls, enemies, and activate switches. They are available in most shops and can be found in dungeons. [[Link]] starts out only being able to carry 10 bombs at a time, but can hold a maximum of 50 by donating Rupees at the [[Pond of Happiness]].",
+    
+    "item": "Boomerang",
+    "value": "Main",
+    "location": "Hyrule's Castle",
+    "description": "The Boomerang is a ranged weapon that can be used to stun enemies or activate switches. It is found in [[Hyrule Castle (A Link to the Past)|Hyrule Castle]] on the way to rescuing [[Zelda|Princess Zelda]].",
+    
+    "item": "Magical Boomerang",
+    "value": "Main",
+    "location": "Waterfall of Wishing",
+    "description": "The Magical Boomerang is an upgraded version of the previous Boomerang, having the ability to fly farther and cut down plants. It is found by throwing the normal boomerang into the [[Waterfall of Wishing]].",
+    
+    "item": "Bug-Catching Net",
+    "value": "Main",
+    "location": "Kakariko Village",
+    "description": "The Bug Catching Net is used to catch bugs and fairies. It is given to [[Link]] by the [[Bug-Catching Kid|sick child]] in [[Kakariko Village]].",
+    
+    "item": "Hookshot",
+    "value": "Main",
+    "location": "Swamp Place",
+    "description": "The Hookshot is an item used to latch on to certain things such as items and chests and draw Link to them like a mechanical Grappling Hook. It is found in the [[Swamp Palace (A Link to the Past)|Swamp Palace]].",
+    
+    "item": "Mushroom",
+    "value": "Main",
+    "location": "Lost Woods",
+    "description": "The Mushroom is used by Syrup to make [[Magic Powder]]. It can be found in [[Lost Woods (A Link to the Past)|Lost Woods]].",
+    
+    "item": "Magic Powder",
+    "value": "Main",
+    "location": "Magic Shop near Zora's River",
+    "descriptin": "Magic Powder is an item used to create fires or turn enemies into something else. It is acquired by bringing the [[Mushroom]] from the [[Lost Woods (A Link to the Past)|Lost Woods]] to [[Syrup]].",
+    
+    "item": "Fire Rod",
+    "value": "Main",
+    "location": "Skull Woods",
+    "description": "The Fire Rod is an item that spits out balls of fire and is capable of burning most enemies. It can also be used to light torches from a distance, and is found in [[Skull Woods (A Link to the Past)|Skull Woods]].",
+    
+    "item": "Ice Rod",
+    "value": "Main",
+    "location": "Cave at Lake Hylia",
+    "description": "The Ice Rod is an item that shoots out a blue beam to freeze enemies. It is found in a cave on the eastern shore of [[Lake Hylia]].",
+    
+    "item": "Magic Hammer",
+    "value": "Main",
+    "location": "Dark Palace",
+    "description": "The Magic Hammer is an item used for flipping over enemies, or penetrating their hard outer shells. It is also used to knock down certain fence posts blocking Link's path, and is found in the [[Dark Palace (A Link to the Past)|Dark Palace]].",
+    
+    "item": "Flute",
+    "value": "Main",
+    "location": "Haunted Grove",
+    "description": "The flute is an instrument used to teleport to one of eight locations via bird-travel. It is acquired by digging it up in the [[Haunted Grove]].",
+    
+    "item": "Book of Mudora",
+    "value": "Main",
+    "location": "House of Books in Kakariko Village",
+    "description": "The Book of Mudora is a book used to translate the Ancient Hyrulean Language in various places throughout the game. It is found in the [[House of Books]] south of Kakariko Village.",
+    
+    "item": "Shovel",
+    "value": "Main",
+    "location": "Flute Boy in Dark World Haunted Grove",
+    "description": "[[Link]] can use the shovel to help find [[Flute Boy|Flute Boy's]] flute. It is replaced with the Flute afterwards.",
+    
+    "item": "Cane of Somaria",
+    "value": "Main",
+    "location": "Misery Mire",
+    "description": "The Cane of Somaria is used to create blocks out of thin air, and is found in the sixth dungeon: [[Misery Mire (A Link to the Past)|Misery Mire]].",
+    
+    "item": "Cane of Byrna",
+    "value": "Main",
+    "location": "Death Mountain",
+    "description": "The Cane of Byrna is used to protect [[Link]] by rapidly spinning around him, forming a protective barrier against most enemies. It is found in a cave on [[Death Mountain]].",
+    
+    "item": "Magic Cape",
+    "value": "Main",
+    "location": "Hyrulian Cemetery in Light World",
+    "description": "The Magic Cape is used to turn Link invisible, rendering him invincible for a short time as well as allowing him to pass through obstacles. It can be found in the [[Hyrulian Cemetery]] in the [[Light World]].",
+    
+    "item": "Magic Mirror",
+    "value": "Main",
+    "location": "Death Mountain",
+    "description": "The Magic Mirror is used to transport Link from the [[Dark World]] to the corresponding location in the [[Light World]], leaving a portal for him to return if needed. It is acquired from the [[Lost Old Man]] inside [[Death Mountain]].",
+    
+    "item": "Ether Medallion",
+    "value": "Main",
+    "location": "Tower of Hera",
+    "description": "The Ether Medallion calls down a strike of lightning, attacking all enemies on screen. Any enemy that is not destroyed is frozen as if hit with the Ice Rod. Ether can be found on a bridge west of the [[Tower of Hera (A Link to the Past)|Tower of Hera]]. A green tablet, that needs the [[Book of Mudora]] to translate it, tells [[Link]] to raise the [[Master Sword]] to the sky. Ether is needed to clear the skies in Misery Mire.",
+    
+    "item": "Quake Medallion",
+    "value": "Main",
+    "location": "Lake of Ill Omen",
+    "description": "[[Link]] slams his sword into the ground, unleashing a shockwave that will either destroy an enemy or turn them into a Slime. The Quake Medallion can be found at the [[Lake of Ill Omen]] in a circle of stones. By throwing a rock into the circle, a [[Catfish]] will appear and offer Link the medallion. Quake is needed to open Turtle Rock.",
+    
+    "item": "Bombos Medallion",
+    "value": "Main",
+    "location": "Desert of Mystery Cliff",
+    "description": "[[Link]] sends out a ring of fire from his sword, destroying all enemies on the screen. The Bombos Medallion can be found by going to the swamp in the [[Dark World]], and use the [[Magic Mirror]] to end up on a cliff in the [[Desert of Mystery]]. Use the [[Book of Mudora]] to read the tablet.",
+    
+    "item": "Magic Bottle",
+    "value": "Main",
+    "location": "Random Chest or Vender in Kakariko Village",
+    "description": "The Magic Bottle is a container used to store various things such as [[fairy|fairies]], [[potion]]s, and bees.",
+    
+    "item": "Red Potion",
+    "value": "Main",
+    "location": "Magic Shop",
+    "description": "The Red Potion restores all of [[Link|Link's]] hearts. It can be bought at the [[Magic Shop]] for 120 Rupees.",
+    
+    "item": "Green Potion",
+    "value": "Main",
+    "location": "Magic Shop",
+    "description": "The Green Potion restores all of [[Link|Link's]] magic power. It can be bought at the [[Magic Shop]] for 60 Rupees.",
+    
+    "item": "Blue Potion",
+    "value": "Main",
+    "location": "Magic Shop",
+    "description": "The Blue Potion restores all of [[Link|Link's]] hearts and magic power. It can be bought at the [[Magic Shop]] for 160 Rupees.",
+    
+    "item": "Fairy",
+    "value": "Main",
+    "location": "Randomly located",
+    "description": "Fairies restore [[Link|Link's]] hearts, or if the heart gauge is emptied, revive Link to a maximum of 8 hearts.",
+    
+    "item": "Bee",
+    "value": "Main",
+    "location": "Random Trees",
+    "description": "When released from a [[bottle]], a bee attacks several times before flying off. It can be found by dashing into trees with the [[Pegasus Boots]].",
+    
+    "item": "Golden Bee",
+    "value": "Main",
+    "location": "Ice Cave",
+    "description": "The Golden Bee is like the normal bee, but does more damage and never flies away from [[Link]]. It can be found in a cave next to the [[Ice Rod]].",
+    
+    "item": "Super Bomb",
+    "value": "Main",
+    "location": "Dark World Bomb Shop",
+    "description": "The Super Bomb is needed to open up the [[Cursed Fairy]]. It can be bought from the [[Dark World]]'s [[Bomb Shop]] for 100 Rupees.",
+    
+    "item": "Basket (GBA only)",
+    "value": "Main",
+    "location": "Woodsman's House",
+    "description": "The Basket can only be found in the [[The Legend of Zelda: A Link to the Past (GBA)|GBA remake]]. It is used during the [[Riddle Quest]].",
+    
+    "item": "Wooden Carvings (GBA only)",
+    "value": "Main",
+    "location": "Woodsman's House",
+    "description": "The Wooden Carvings can only be found in the [[The Legend of Zelda: A Link to the Past (GBA)|GBA remake]]. They are a reward from the [[Riddle Quest]].",
+    
+    "item": "Dungeon Map",
+    "value": "Main",
+    "location": "Randomly Spawn in Dungeon",
+    "description": "The Dungeon Map shows the layout of the current dungeon.",
+    
+    "item": "Compass",
+    "value": "Main",
+    "location": "Randomly Spawn in Dungeon",
+    "description": "The Compass shows where items and the boss are located within a dungeon.",
+    
+    "item": "Big Key",
+    "value": "Main",
+    "location": "Randomly Spawn in  Dungeon",
+    "description": "The Big Key opens the Big Chest and the door to the boss of a given dungeon.",
+    
+    "item": "Small Key",
+    "value": "Main",
+    "location": "Randomly Spawn in Dungeon",
+    "description": "The Small Key opens a locked door in a dungeon. Each is only used in one dungeon, where it permanently unlocks one door, but can only be used once.",
+    
+    "item": "Pendant of Courage",
+    "value": "Quest",
+    "location": "Eastern Palace",
+    "description": "Found in the [[Eastern Palace (A Link to the Past)|Eastern Palace]] after defeating the [[Armos Knight (A Link to the Past)|Armos Knights]].",
+    
+    "item": "Pendant of Power",
+    "value": "Quest",
+    "location": "Desert Palace",
+    "description": "Found in the [[Desert Palace (A Link to the Past)|Desert Palace]] after defeating the [[Lanmola (A Link to the Past)|Lanmolas]].",
+    
+    "item": "Pendant of Wisdom",
+    "value": "Quest",
+    "location": "Tower of Hera",
+    "description": "Found in the [[Tower of Hera (A Link to the Past)|Tower of Hera]] after defeating the [[Moldorm (A Link to the Past)|Moldorm]].",
+    
+    "item": "Crystal",
+    "value": "Quest",
+    "location": "Dungeon",
+    "description": "Found in each [[Dark World]] dungeon by defeating the boss within."
+    }
+    
