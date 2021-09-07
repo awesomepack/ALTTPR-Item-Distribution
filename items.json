@@ -1,4 +1,5 @@
-{"item": "Fighter's Sword",
+{
+    "item":"Fighter's Sword",
     "value": "Main",
     "location": "Hyrule Castle Basment",
     "description" : "The Fighter's Sword is the first weapon [[Link]] possesses. He receives it from his [[Link's Uncle|Uncle]] in the basement of [[Hyrule Castle (A Link to the Past)|Hyrule Castle]].",
@@ -121,7 +122,7 @@
     "item": "Magic Powder",
     "value": "Main",
     "location": "Magic Shop near Zora's River",
-    "descriptin": "Magic Powder is an item used to create fires or turn enemies into something else. It is acquired by bringing the [[Mushroom]] from the [[Lost Woods (A Link to the Past)|Lost Woods]] to [[Syrup]].",
+    "description": "Magic Powder is an item used to create fires or turn enemies into something else. It is acquired by bringing the [[Mushroom]] from the [[Lost Woods (A Link to the Past)|Lost Woods]] to [[Syrup]].",
     
     "item": "Fire Rod",
     "value": "Main",
@@ -250,7 +251,7 @@
     
     "item": "Big Key",
     "value": "Main",
-    "location": "Randomly Spawn in  Dungeon",
+    "location": "Randomly Spawn in Dungeon",
     "description": "The Big Key opens the Big Chest and the door to the boss of a given dungeon.",
     
     "item": "Small Key",
