@@ -19,11 +19,19 @@ def query_viz1():
     # Function to query main data in preparation of viz1
     return 'This is endpoint for viz1 data'
 
-@app.route('/viz2')
-def query_viz2():
-
+@app.route('/viz2/<Location>')
+def query_viz2(Location):
     # Queries data to create a bar graph of item distribution in a selected area
-    return 'This is endpoint for viz 2 data'
+
+    # maps query result object to js dataObj
+    dataObject = {
+        'location': '' , 
+        'items': [] , 
+        'occurrence': []
+    };
+
+    # Returns a dataObject on the enpoint
+
 
 @app.route('/viz3')
 def query_viz3():
