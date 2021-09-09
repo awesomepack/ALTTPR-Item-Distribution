@@ -15,67 +15,18 @@
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
 
-  Our CSS -->
-  <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
 
-  <!-- The div that holds our map -->
-  <!-- <div id="map"></div> -->
-
-  <!-- <div id="map">
-    <img src="https://mikesrpgcenter.com/zelda3/maps/darkworld_large.gif" alt="legend">
-  </div> -->
-
   <h1>Map</h1>
   <div id="map" style="width: 1152px; height: 864px; border: 1px solid #AAA;"></div>
-  <!-- <script>
-    let lightworldlayer = L.tileLayer("map/LTTP-LightWorld.jpg",{
-        maxZoom: 4,
-        minZoom: 1, 
-        zoom: 1, 
-        maxBoundsViscosity: 1,
-        crs: L.CRS.Simple});
-    let darkworldlayer = L.tileLayer("map/LTTP-DarkWorld.png",{
-        maxZoom: 4,
-        minZoom: 1, 
-        zoom: 1, 
-        maxBoundsViscosity: 1,
-        crs: L.CRS.Simple});
+  <!-- <div id="map2"></div> -->
 
-    let linkmap = {
-        "DarkWorld": darkworldlayer,
-        "LightWorld": lightworldlayer
-    }
-    var map = L.map('map', {
-      minZoom: 1,
-      maxZoom: 4,
-      center: [0, 0],
-      zoom: 1,
-      maxBoundsViscosity: 1,
-      crs: L.CRS.Simple,
-      layers: [darkworldlayer,lightworldlayer]
-    }); -->
-   
-    // var image = L.imageOverlay("map/LTTP-DarkWorld.png", [
-    //   [0, 0],
-    //   [432, 576]
-    // ]);
-    // image.addTo(map);
-  
-//     map.setMaxBounds(new L.LatLngBounds([0, 0], [432, 576])); 
-//     L.tileLayer('', {
-//       attribution: '&copy; <a href="https://mikesrpgcenter.com">Link to the Past</a>'
-//     }).addTo(map);
-// </script>
-
-<!-- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-crossorigin=""></script> -->
 
 <script src="https://d3js.org/d3.v5.min.js"></script>
 
-<script type="text/javascript" src="/map.js"></script>
+<script type="text/javascript" src="map.js"></script>
 </body>
 </html>
