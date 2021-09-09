@@ -1,9 +1,9 @@
 
 var map = L.map('map', {
   minZoom: -2,
-  maxZoom: 5,
-  center: [0, 0],
-  zoom: 1,
+  maxZoom: 2,
+  center: [1003, 2006],
+  zoom: -2,
   maxBoundsViscosity: 1,
   crs: L.CRS.Simple,
 });
