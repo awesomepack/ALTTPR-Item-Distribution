@@ -22,7 +22,7 @@ def query_viz1():
 @app.route('/viz2')
 def query_viz2():
 
-    # Function to query main data for viz 2
+    # Queries data to create a bar graph of item distribution in a selected area
     return 'This is endpoint for viz 2 data'
 
 @app.route('/viz3')
@@ -42,10 +42,8 @@ if __name__ == '__main__':
 # To Do:
 # tutorial: https://www.tutorialspoint.com/flask/flask_templates.htm
 # inspect one of USGS's data endpoints , that is what we will try to mimic for each route
-# Create a dummy dataset with our desired structure
-# Create a dummy database for our dummy dataset
-# Layout routes for our three visualizations
 
-# Each route should:
-    # Query the main data needed for the visualization
-    # format the data in an object for use in js.
+# Create A dummy data query result for viz2
+# Create a function that returns it in Json or GeoJson format
+# Try accessing the data from your endpoint via plot.js
+
