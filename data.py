@@ -2,11 +2,12 @@ import json
 from sqlalchemy import create_engine
 from sqlalchemy import Table, Column, String, MetaData, Integer
 from login import postgres_username, postgres_password
+import re
 
 db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
 
 db = create_engine(db_string)
-meta = MetaData(db)
+meta = MetaData(db)\
 
 location_metadata_table = Table('location-metadata', meta,
                                 Column('location', String),
@@ -16,6 +17,14 @@ location_metadata_table = Table('location-metadata', meta,
                                 Column('requirements', String),
                                 Column('region', String))
 
+filepath = 'resources/locations/overworld.json'
+
+with open(filepath, 'r') as file:
+    content = file.read()
+    cleaned_json = re.sub('pattern','',file)
+    overworld_locations : dict = json.load(file)
+
+
 with db.connect() as conn:
     insert = location_metadata_table.insert().values(location='pedestal',
                                                     x=100,
@@ -24,10 +33,6 @@ with db.connect() as conn:
                                                     requirements=[],
                                                     region='Overworld')
     conn.execute(insert)
-    select_statement = location_metadata_table.select()
-    results = conn.execute(select_statement)
-    for r in results:
-        print(r)
 
 filepath = 'resources/seeds/alttpr_none_standard_ganon_bJqPVL0byeOBX2K.json'
 
@@ -82,6 +87,7 @@ for region, dic in seed_json.items():
     for key, value in dic.items():
         locations[remid(key)] = remid(value)
         items[remid(value)] = remid(key)
+
 
 
 
