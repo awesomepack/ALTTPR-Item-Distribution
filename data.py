@@ -1,5 +1,33 @@
 import json
+from sqlalchemy import create_engine
+from sqlalchemy import Table, Column, String, MetaData, Integer
+from login import postgres_username, postgres_password
 
+db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
+
+db = create_engine(db_string)
+meta = MetaData(db)
+
+location_metadata_table = Table('location-metadata', meta,
+                                Column('location', String),
+                                Column('x', Integer),
+                                Column('y', Integer),
+                                Column('map', String),
+                                Column('requirements', String),
+                                Column('region', String))
+
+with db.connect() as conn:
+    insert = location_metadata_table.insert().values(location='pedestal',
+                                                    x=100,
+                                                    y=100,
+                                                    map='lightworld',
+                                                    requirements=[],
+                                                    region='Overworld')
+    conn.execute(insert)
+    select_statement = location_metadata_table.select()
+    results = conn.execute(select_statement)
+    for r in results:
+        print(r)
 
 filepath = 'resources/seeds/alttpr_none_standard_ganon_bJqPVL0byeOBX2K.json'
 
@@ -47,6 +75,7 @@ locations = {}
 def remid(oldkey : str):
     test = oldkey.split(':')[0]
     return test
+
 
 for region, dic in seed_json.items():
     
