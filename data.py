@@ -1,38 +1,100 @@
 import json
 from sqlalchemy import create_engine
-from sqlalchemy import Table, Column, String, MetaData, Integer
+from sqlalchemy import Column, String, Integer, ARRAY
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 from login import postgres_username, postgres_password
 import re
 
 db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
 
-db = create_engine(db_string)
-meta = MetaData(db)\
+db = create_engine(db_string, echo=True)
+Session = sessionmaker(bind=db)
 
-location_metadata_table = Table('location-metadata', meta,
-                                Column('location', String),
-                                Column('x', Integer),
-                                Column('y', Integer),
-                                Column('map', String),
-                                Column('requirements', String),
-                                Column('region', String))
+base = declarative_base()
+class Location(base):
+    __tablename__ = 'location-metadata'
+    location = Column(String, primary_key=True)
+    x = Column(Integer)
+    y = Column(Integer)
+    map = Column(String)
+    requirements = Column(ARRAY(String))
+    region = Column(String)
+    count = Column(Integer)
 
-filepath = 'resources/locations/overworld.json'
+locations_filepath = 'resources/locations/overworld.json'
 
-with open(filepath, 'r') as file:
-    content = file.read()
-    cleaned_json = re.sub('pattern','',file)
-    overworld_locations : dict = json.load(file)
+with open(locations_filepath, 'r') as lfile:
+    content = lfile.read()
+    cleaned_json = re.sub('\/\/.*\n','',str(content))
+    overworld_locations : dict = json.loads(cleaned_json)
+
+dlocations_filepath = 'resources/locations/dungeons.json'
+
+with open(dlocations_filepath, 'r') as dfile:
+    dcontent = dfile.read()
+    dcleaned_json = re.sub('\/\/.*\n','',str(dcontent))
+    dungeon_locations : dict = json.loads(dcleaned_json)
+
+###################
+# Start of Session
+###################
+session = Session()
+
+##########
+# Location Data
+##########
+table = Location.__table__
+
+table.drop(db)
+table.create(db)
+
+def add_loc_from_region(region : dict):
+    region_name = region['name']
+    print(f'Region: {region_name}')
+    if type(region) == dict and 'children' in region.keys(): 
+        for child in region['children']:
+            add_loc_from_region(child)
+    elif 'map_locations' in region.keys(): 
+        location = region['name']
+        print(f'\t\tLocation: {location}')
+        geography = region['map_locations']
+        print(f'\t\tGeography: {geography}')
+        point = geography[0]
+        sections = region['sections']
+        print(f'\t\tSections: {sections}')
+        count = 0
+        rules = []
+        for section in sections:
+            if 'item_count' in section.keys():
+                count+= section['item_count']
+            if 'access_rules' in section.keys(): 
+                rules.extend(section['access_rules'])
+        session.add(Location(location = location,
+                                        x=point['x'], 
+                                        y=point['y'], 
+                                        map = point['map'],
+                                        requirements = rules,
+                                        region = region_name,
+                                        count = count) )
+    else:
+        print(f"Bad Location? {region['name']}")
+
+for region in overworld_locations:
+    add_loc_from_region(region)
+for region in dungeon_locations:
+    add_loc_from_region(region)
+
+session.commit()
+##########
+# Commit/End Location Data
+##########
 
 
-with db.connect() as conn:
-    insert = location_metadata_table.insert().values(location='pedestal',
-                                                    x=100,
-                                                    y=100,
-                                                    map='lightworld',
-                                                    requirements=[],
-                                                    region='Overworld')
-    conn.execute(insert)
+session.close()
+###################
+# Session Closed
+###################
 
 filepath = 'resources/seeds/alttpr_none_standard_ganon_bJqPVL0byeOBX2K.json'
 
