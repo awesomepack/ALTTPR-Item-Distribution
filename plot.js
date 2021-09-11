@@ -12,8 +12,8 @@ function charts(sample){
   var values = sample[2];
 
   var bar =[{
-    y: items,
-    x: values,
+    x: items,
+    y: values,
     type: "bar",
     marker:{
       color: 'rgb(158,202,225)',
@@ -24,6 +24,11 @@ function charts(sample){
       }
     }
   }];
+
+  var barshape = {
+        title: name,
+        margin: { top: 80, left: 200 },
+        };
 
   Plotly.newPlot("bar", bar, barshape);
 };
