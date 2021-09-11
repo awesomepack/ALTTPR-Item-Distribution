@@ -1,7 +1,7 @@
 
 # importing dependencies
 import sqlalchemy
-from sqlalchemy import engine
+from sqlalchemy import select, text
 from sqlalchemy.exc import DatabaseError
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -11,6 +11,8 @@ from sqlalchemy.sql.schema import MetaData
 from login import postgres_password , postgres_username
 from flask import Flask , redirect , url_for , request , render_template
 from flask import jsonify
+import tables
+
 
 app = Flask(__name__)
 
@@ -30,18 +32,17 @@ def query_viz1():
     db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
     engine = create_engine(db_string , echo = True)
 
-    # Reflecting database
-    Base = automap_base()
-    Base.prepare(engine , reflect = True)
-
     # passing reference to the location-metadata table
-    Locations = Base.classes.locationMetadata
+    locations_table = tables.Location.__table__
 
     # Begin Session
     session = Session(engine)
 
     # Select all entries from the database
-    results = session.query(Locations.location , Locations.map , Locations.X , Locations.y).all()
+    text_statement = text("SELECT * FROM public.\"location-metadata\" ORDER BY location ASC ")
+    # stmt = select(tables.Location)
+    results = session.execute(text_statement)
+    
 
     # initializing the map locations dictionary that will be served
     mapLocations = []
