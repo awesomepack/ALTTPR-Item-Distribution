@@ -6,7 +6,7 @@ import seedparser
 
 base = declarative_base()
 
-class Location(base):
+class LocationMetadata(base):
     __tablename__ = 'location-metadata'
     location = Column(String, primary_key=True)
     x = Column(Integer)

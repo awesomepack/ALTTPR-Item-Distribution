@@ -2,7 +2,7 @@ import json
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from login import postgres_username, postgres_password
-from tables import Location
+from tables import LocationMetadata
 import re
 
 db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
@@ -32,7 +32,7 @@ session = Session()
 ##########
 # Location Data
 ##########
-table = Location.__table__
+table = LocationMetadata.__table__
 
 table.drop(db)
 table.create(db)
@@ -58,7 +58,7 @@ def add_loc_from_region(region : dict):
                 count+= section['item_count']
             if 'access_rules' in section.keys(): 
                 rules.extend(section['access_rules'])
-        session.add(Location(location = location,
+        session.add(LocationMetadata(location = location,
                                         x=point['x'], 
                                         y=point['y'], 
                                         map = point['map'],

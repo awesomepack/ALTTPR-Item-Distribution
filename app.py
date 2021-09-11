@@ -13,6 +13,8 @@ from flask import Flask , redirect , url_for , request , render_template
 from flask import jsonify
 import tables
 
+db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
+engine = create_engine(db_string , echo = True)
 
 app = Flask(__name__)
 
@@ -23,7 +25,6 @@ def add_header(response):
 
 @app.route('/ALTTPR')
 def home():
-
     return 'This is the home page'
 
     # Function to render potential home page with information on API routes
@@ -35,18 +36,13 @@ def home():
 def query_viz1():
 
     # Creating connection to alttpr database
-    db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
-    engine = create_engine(db_string , echo = True)
-
-    # passing reference to the location-metadata table
-    locations_table = tables.Location.__table__
 
     # Begin Session
     session = Session(engine)
 
     # Select all entries from the database
     # text_statement = text("SELECT * FROM public.\"location-metadata\" ORDER BY location ASC ")
-    stmt = select([tables.Location.location, tables.Location.x, tables.Location.y, tables.Location.map, tables.Location.count])
+    stmt = select([tables.LocationMetadata.location, tables.LocationMetadata.x, tables.LocationMetadata.y, tables.LocationMetadata.map, tables.LocationMetadata.count])
     results = session.execute(stmt)
     
 
@@ -73,8 +69,8 @@ def query_viz1():
 
 
 
-@app.route('/viz2/<Location>')
-def query_viz2(Location):
+@app.route('/viz2/<location>')
+def query_viz2(location):
     # Queries data to create a bar graph of item distribution in a selected area
 
     # maps query result object to js dataObj
@@ -82,7 +78,7 @@ def query_viz2(Location):
         'location': '' , 
         'items': [] , 
         'occurrence': []
-    };
+    }
 
     # Returns a dataObject on the endpoint
 
