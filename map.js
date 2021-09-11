@@ -22,9 +22,6 @@ for (var i = 0; i < loc.length; i++) {
     .bindPopup(loc[i][0])
 .addTo(map);}
 
-L.marker([83, 102]).addTo(map)
-    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-    .openPopup();
 
 
 
