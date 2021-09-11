@@ -10,10 +10,14 @@ from sqlalchemy import create_engine
 from sqlalchemy.sql.schema import MetaData
 from login import postgres_password , postgres_username
 from flask import Flask , redirect , url_for , request , render_template
+from flask_cors import CORS , cross_origin
+from flask import jsonify
 
 app = Flask(__name__)
+CORS(app , support_credentials = True)
 
 @app.route('/ALTTPR')
+
 def home():
 
     return 'This is the home page'
@@ -21,7 +25,9 @@ def home():
     # Function to render potential home page with information on API routes
 
 @app.route('/viz1/<Maps>')
+@cross_origin(supports_credentials = True)
 def query_viz1(Maps):
+
     # Creating connection to alttpr database
     db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
     engine = create_engine(db_string , echo = True)
@@ -54,7 +60,7 @@ def query_viz1(Maps):
         mapLocations['x'].append(row[2]);
         mapLocations['y'].append(row[3])
 
-    return mapLocations
+    return jsonify(mapLocations)
 
 
 
@@ -87,11 +93,4 @@ if __name__ == '__main__':
 
     app.run( debug = True)
 
-# To Do:
-# tutorial: https://www.tutorialspoint.com/flask/flask_templates.htm
-# inspect one of USGS's data endpoints , that is what we will try to mimic for each route
-
-# Create A dummy data query result for viz2
-# Create a function that returns it in Json or GeoJson format
-# Try accessing the data from your endpoint via plot.js
 
