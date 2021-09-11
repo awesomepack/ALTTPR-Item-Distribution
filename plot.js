@@ -22,7 +22,7 @@ function Charts(sample){
             width: 2
     }
 }
-    }]};
+    }]
 
     // var barshape = {
     //     title: "Ganon's Tower",
@@ -227,4 +227,7 @@ function Charts(sample){
         ]
       };
 
-console.log(mapLocations.x[0])
+
+    Plotly.newPlot("bar", bar, barshape);
+    }  
+
