@@ -16,7 +16,7 @@ function Charts(sample){
             width: 2
     }
 }
-    }]};
+    }]
 
     var barshape = {
         title: "Ganon's Tower",
@@ -24,4 +24,4 @@ function Charts(sample){
         };
 
     Plotly.newPlot("bar", bar, barshape);
-    
+    }  
