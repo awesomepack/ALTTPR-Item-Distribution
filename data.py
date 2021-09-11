@@ -116,8 +116,8 @@ def loadAllData(folderpath : str, limit = -1, batchsize = 1000, maketables = Tru
     if maketables:
         makeTables(dropfirst=dropfirst)
     if limit <=0:
-        for file in os.scandir(folderpath):
-            print (f'unlimited: {file.path}')
+        for i, file in enumerate(os.scandir(folderpath)):
+            print (f'unlimited ({i}): {file.path}')
             if file.path.endswith('.json'):
                 loadSeed(file.path, session)
     else:
