@@ -122,7 +122,7 @@ def loadAllData(folderpath : str, limit = -1, batchsize = 1000, maketables = Tru
                 loadSeed(file.path, session)
     else:
         for i, file in enumerate(os.scandir(folderpath)):
-            if i > 0 and i%batchsize == 0:
+            if i > 0 and batchsize > 0 and i%batchsize == 0:
                 session.commit()
             if i>=limit:
                 break
