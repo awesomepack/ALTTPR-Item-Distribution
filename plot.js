@@ -1,233 +1,31 @@
 d3.json('http://localhost:5000/viz1').then(function(data) {
   console.log(data)
-})
+});
 // Delete the above code when done debugging the app.py
 
 
-function Charts(sample){
-    var name =  "Ganon's Tower - Compass Room - Bottom Right";
-    var items = ['BossHeartContainer', 'Bottle', 'TenArrows', 'Flippers', 'TwentyRupees', 'other'];
-    var values = [12, 14, 7, 19, 3, 45];
+var test_data = ["Ganon's Tower - Compass Room - Bottom Right", ['BossHeartContainer', 'Bottle', 'TenArrows', 'Flippers', 'TwentyRupees', 'other'], [12, 14, 7, 19, 3, 45]];
 
-    var bar =[
-    {
-        y: items,
-        x: values,
-        type: "bar",
-        marker:{
-            color: 'rgb(158,202,225)',
-            opacity: 1.5,
-            line: {
-            color: 'rgb(8,48,107)',
-            width: 2
+function charts(sample){
+  var name =  sample[0];
+  var items = sample[1];
+  var values = sample[2];
+
+  var bar =[{
+    y: items,
+    x: values,
+    type: "bar",
+    marker:{
+      color: 'rgb(158,202,225)',
+      opacity: 1.5,
+      line: {
+        color: 'rgb(8,48,107)',
+        width: 2
+      }
     }
-}
-    }]
+  }];
 
-    // var barshape = {
-    //     title: "Ganon's Tower",
-    //     margin: { top: 80, left: 200 },
-    //     };
+  Plotly.newPlot("bar", bar, barshape);
+};
 
-    // Plotly.newPlot("bar", bar, barshape);
-
-
-    var mapLocations =  {
-        "Location": [
-          "Master Sword Pedestal", 
-          "Lumberjack Cave", 
-          "Blind's House", 
-          "The Well", 
-          "Bottle Vendor", 
-          "Chicken House", 
-          "Tavern", 
-          "Sick Kid", 
-          "Magic Bat", 
-          "Race Game", 
-          "Library", 
-          "Lost Woods", 
-          "Castle Secret Entrance", 
-          "Link's House", 
-          "Grove Digging Spot", 
-          "Bombos Tablet", 
-          "South of Grove", 
-          "Witch's Hut", 
-          "Waterfall Fairy", 
-          "Zora Area", 
-          "Sahasrala's Hut", 
-          "Bonk Rocks", 
-          "King's Tomb", 
-          "Graveyard Ledge", 
-          "Desert Ledge", 
-          "Aginah's Cave", 
-          "Dwarven Smiths", 
-          "Purple Chest", 
-          "Dam", 
-          "Mini Moldorm Cave", 
-          "Ice Rod Cave", 
-          "Lake Hylia Island", 
-          "Hobo", 
-          "Checkerboard Cave", 
-          "Old Man", 
-          "Spectacle Rock", 
-          "Ether Tablet", 
-          "Spiral Cave", 
-          "Paradox Cave", 
-          "Floating Island", 
-          "Hyrule Castle & Sanctuary", 
-          "Agahnim", 
-          "Eastern Palace", 
-          "Desert Palace", 
-          "Tower of Hera", 
-          "Mimic Cave"
-        ], 
-        "Map": [
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld", 
-          "lightworld"
-        ], 
-        "x": [
-          83, 
-          633, 
-          307, 
-          47, 
-          190, 
-          197, 
-          320, 
-          314, 
-          650, 
-          111, 
-          313, 
-          320, 
-          1196, 
-          1097, 
-          600, 
-          440, 
-          552, 
-          1607, 
-          1806, 
-          1920, 
-          1625, 
-          777, 
-          1207, 
-          1132, 
-          40, 
-          400, 
-          616, 
-          680, 
-          942, 
-          1309, 
-          1795, 
-          1450, 
-          1390, 
-          354, 
-          816, 
-          980, 
-          844, 
-          1598, 
-          1731, 
-          1627, 
-          1003, 
-          1003, 
-          1925, 
-          146, 
-          1126, 
-          1694
-        ], 
-        "y": [
-          101, 
-          117, 
-          840, 
-          833, 
-          933, 
-          1066, 
-          1145, 
-          1060, 
-          1127, 
-          1354, 
-          1310, 
-          260, 
-          834, 
-          1366, 
-          1350, 
-          1845, 
-          1693, 
-          670, 
-          286, 
-          273, 
-          900, 
-          590, 
-          598, 
-          549, 
-          1835, 
-          1655, 
-          1054, 
-          1805, 
-          1880, 
-          1887, 
-          1547, 
-          1666, 
-          1390, 
-          1560, 
-          378, 
-          178, 
-          38, 
-          180, 
-          434, 
-          40, 
-          906, 
-          807, 
-          791, 
-          1584, 
-          68, 
-          190
-        ]
-      };
-
-
-    Plotly.newPlot("bar", bar, barshape);
-    }  
-
+charts(test_data);
