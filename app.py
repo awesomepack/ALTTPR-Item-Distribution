@@ -2,10 +2,12 @@
 # importing dependencies
 import sqlalchemy
 from sqlalchemy import engine
+from sqlalchemy.exc import DatabaseError
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from sqlalchemy import create_engine
+from sqlalchemy.sql.schema import MetaData
 from login import postgres_password , postgres_username
 from flask import Flask , redirect , url_for , request , render_template
 
@@ -27,7 +29,30 @@ def query_viz1():
     # Reflecting database
     Base = automap_base()
     Base.prepare(engine , reflect = True)
-    return str(Base.classes.keys())
+
+    # passing reference to the location-metadata table
+    Locations = Base.classes.locationMetadata
+
+    # Begin Session
+    session = Session(engine)
+
+    # Select all entries from the database
+    results = session.query(Locations.location , Locations.map).all()
+
+    # initializing the map locations dictionary that will be served
+    mapLocations = {
+        'Location':[] , 
+        'Map': []
+    };
+
+    # populating mapLocations with results from query
+    for row in results:
+        mapLocations['Location'].append(row[0]);
+        mapLocations['Map'].append(row[1]);
+
+    return mapLocations
+
+
 
 
 @app.route('/viz2/<Location>')
