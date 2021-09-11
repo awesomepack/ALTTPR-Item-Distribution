@@ -16,14 +16,20 @@ import tables
 
 app = Flask(__name__)
 
+@app.after_request
+def add_header(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
 
 @app.route('/ALTTPR')
-
 def home():
 
     return 'This is the home page'
 
     # Function to render potential home page with information on API routes
+
+
+
 
 @app.route('/viz1')
 def query_viz1():
@@ -52,9 +58,14 @@ def query_viz1():
         location = row[0]
         map = row[3]
         if map == "lightworld":
-            coords = [(2007-row[1]), row[2]]
+            x = row[1]
+            y = 2007 - row[2]
+            coords = [y, x]
         else:
-            coords = [(2007-row[1]), (2007+row[2])]
+            x = row[1] + 2007
+            y = 2007 - row[2]
+            coords = [y, x]
+            
         count = row[4]
         mapLocations.append([location, coords, count])
     return jsonify(mapLocations)
