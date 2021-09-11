@@ -7,6 +7,8 @@ from sqlalchemy.dialects.postgresql import HSTORE
 from sqlalchemy.ext.mutable import MutableDict
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from sample_data import location_map
+
 
 
 base = declarative_base()
@@ -31,10 +33,16 @@ class Special(base):
     other_stuff = Column(MutableDict.as_mutable(HSTORE))
     bosses = Column(MutableDict.as_mutable(HSTORE))
 
+    def __init__(self, seed_guid : str, special : dict):
+        self.seed_guid = seed_guid
+        for k,v in special.items():
+            setattr(self, k, v)
+
+
 class Shops(base):
     __tablename__ = 'shops'
     seed_guid = Column(String, primary_key=True)
-    name = Column(String)
+    name = Column(String, primary_key=True)
     type = Column(String)
     item_1 = Column(String)
     price_1 = Column(Integer)
@@ -42,6 +50,13 @@ class Shops(base):
     price_2 = Column(Integer)
     item_3 = Column(String)
     price_3 = Column(Integer)
+
+    def __init__(self, seed_guid : str, shops : dict):
+        self.seed_guid = seed_guid
+        for k,v in shops.items():
+            setattr(self, k, v)
+
+
 
 class Items(base):
     __tablename__ = 'items'
@@ -148,6 +163,11 @@ class Items(base):
     MapA2 = Column(ARRAY(String))
     BigKeyA2 = Column(ARRAY(String))
     CompassA2 = Column(ARRAY(String))
+
+    def __init__(self, seed_guid : str, items : dict):
+        self.seed_guid = seed_guid
+        for k,v in items.items():
+            setattr(self, k, v)
 
 class Locations(base):
     __tablename__ = 'locations'
@@ -378,3 +398,8 @@ class Locations(base):
     GanonsTowerMiniHelmasaurRoomRight = Column(String)
     GanonsTowerPreMoldormChest = Column(String)
     GanonsTowerMoldormChest = Column(String)
+    
+    def __init__(self, seed_guid : str, locations : dict):
+        self.seed_guid = seed_guid
+        for k,v in locations.items():
+            setattr(self, location_map[k], v)
