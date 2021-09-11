@@ -119,20 +119,18 @@ def loadAllData(folderpath : str, limit = -1, batchsize = 1000, maketables = Tru
         for i, file in enumerate(os.scandir(folderpath)):
             if i > 0 and batchsize > 0 and i%batchsize == 0:
                 session.commit()
-            else:
-                print (f'unlimited ({i}): {file.path}')
-                if file.path.endswith('.json'):
-                    loadSeed(file.path, session)
+            print (f'unlimited ({i}): {file.path}')
+            if file.path.endswith('.json'):
+                loadSeed(file.path, session)
     else:
         for i, file in enumerate(os.scandir(folderpath)):
-            if i > 0 and batchsize > 0 and i%batchsize == 0:
-                session.commit()
             if i>=limit:
                 break
-            else:
-                print (f'{limit-i}: {file.path}' )
-                if file.path.endswith('.json'):
-                    loadSeed(file.path, session)
+            if i > 0 and batchsize > 0 and i%batchsize == 0:
+                session.commit()
+            print (f'{limit-i}: {file.path}' )
+            if file.path.endswith('.json'):
+                loadSeed(file.path, session)
     session.commit()
     session.close()
     
