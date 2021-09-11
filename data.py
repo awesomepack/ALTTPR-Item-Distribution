@@ -1,26 +1,20 @@
+from collections import defaultdict
 import json
 from sqlalchemy import create_engine
 from sqlalchemy import Column, String, Integer, ARRAY
+import sqlalchemy
+from sqlalchemy.dialects.postgresql import HSTORE
+from sqlalchemy.ext.mutable import MutableDict
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from login import postgres_username, postgres_password
+from tables import Location, Special, Shops, Items, Locations
 import re
 
 db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
 
 db = create_engine(db_string, echo=True)
 Session = sessionmaker(bind=db)
-
-base = declarative_base()
-class Location(base):
-    __tablename__ = 'location-metadata'
-    location = Column(String, primary_key=True)
-    x = Column(Integer)
-    y = Column(Integer)
-    map = Column(String)
-    requirements = Column(ARRAY(String))
-    region = Column(String)
-    count = Column(Integer)
 
 locations_filepath = 'resources/locations/overworld.json'
 
@@ -100,7 +94,12 @@ session.close()
 ##########
 # Start Seed Data
 ##########
+
+
 filepath = 'resources/seeds/alttpr_none_standard_ganon_bJqPVL0byeOBX2K.json'
+
+pattern = 'ganon_(.+)\.json'
+guid = re.search(pattern, filepath).group(1)
 
 with open(filepath) as file:
     seed_json : dict = json.load(file)
@@ -121,8 +120,7 @@ bosses = seed_json.pop('Bosses')
 #
 ###
 
-
-items = {}
+items = defaultdict(list)
 locations = {}
 
 def remid(oldkey : str):
@@ -134,10 +132,16 @@ for region, dic in seed_json.items():
     
     for key, value in dic.items():
         locations[remid(key)] = remid(value)
-        items[remid(value)] = remid(key)
+        items[remid(value)].append([remid(key)])
 
 
+location_map = {}
 
+for item in locations.keys():
+    trimmed = re.sub('\W','', item)
+    # print (f'{trimmed} = Column(String)')
+    location_map[trimmed] = item
+    location_map[item] = trimmed
 
 
 
