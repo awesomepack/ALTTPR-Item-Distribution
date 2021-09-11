@@ -1,15 +1,8 @@
-from collections import defaultdict
-import json
-from sqlalchemy import create_engine
 from sqlalchemy import Column, String, Integer, ARRAY
-import sqlalchemy
 from sqlalchemy.dialects.postgresql import HSTORE
 from sqlalchemy.ext.mutable import MutableDict
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-from sample_data import location_map
-
-
+import seedparser
 
 base = declarative_base()
 
@@ -38,7 +31,6 @@ class Special(base):
         for k,v in special.items():
             setattr(self, k, v)
 
-
 class Shops(base):
     __tablename__ = 'shops'
     seed_guid = Column(String, primary_key=True)
@@ -55,8 +47,6 @@ class Shops(base):
         self.seed_guid = seed_guid
         for k,v in shops.items():
             setattr(self, k, v)
-
-
 
 class Items(base):
     __tablename__ = 'items'
@@ -402,4 +392,10 @@ class Locations(base):
     def __init__(self, seed_guid : str, locations : dict):
         self.seed_guid = seed_guid
         for k,v in locations.items():
-            setattr(self, location_map[k], v)
+            setattr(self, seedparser.getLocationMap()[k], v)
+
+class Seeds(base):
+    __tablename__ = 'seeds'
+    seed_guid = Column(String, primary_key=True)
+    location = Column(String, primary_key=True)
+    item = Column(String, primary_key=True)
