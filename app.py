@@ -40,7 +40,7 @@ def query_viz1():
 
     # Select all entries from the database
     # text_statement = text("SELECT * FROM public.\"location-metadata\" ORDER BY location ASC ")
-    stmt = select([tables.Location])
+    stmt = select([tables.Location.location, tables.Location.x, tables.Location.y, tables.Location.map, tables.Location.count])
     results = session.execute(stmt)
     
 
@@ -49,16 +49,14 @@ def query_viz1():
 
     # populating mapLocations with results from query
     for row in results:
-        mapLocations.append([row[0] , [row[2], row[3]]]);
-        # mapLocations['Map'].append(row[1]);
-        # mapLocations['x'].append(2007 - row[2]);
-
-        # if row[1] == 'darkworld':
-
-        #     mapLocations['y'].append(2007 + row[3])
-        # else:
-        #     mapLocations['y'].append(row[3])
-
+        location = row[0]
+        map = row[3]
+        if map == "lightworld":
+            coords = [(2007-row[1]), row[2]]
+        else:
+            coords = [(2007-row[1]), (2007+row[2])]
+        count = row[4]
+        mapLocations.append([location, coords, count])
     return jsonify(mapLocations)
 
 
