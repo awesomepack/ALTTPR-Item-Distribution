@@ -39,9 +39,9 @@ def query_viz1():
     session = Session(engine)
 
     # Select all entries from the database
-    text_statement = text("SELECT * FROM public.\"location-metadata\" ORDER BY location ASC ")
-    # stmt = select(tables.Location)
-    results = session.execute(text_statement)
+    # text_statement = text("SELECT * FROM public.\"location-metadata\" ORDER BY location ASC ")
+    stmt = select([tables.Location])
+    results = session.execute(stmt)
     
 
     # initializing the map locations dictionary that will be served
