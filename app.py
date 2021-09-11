@@ -20,8 +20,8 @@ def home():
 
     # Function to render potential home page with information on API routes
 
-@app.route('/viz1')
-def query_viz1():
+@app.route('/viz1/<Maps>')
+def query_viz1(Maps):
     # Creating connection to alttpr database
     db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
     engine = create_engine(db_string , echo = True)
@@ -37,18 +37,22 @@ def query_viz1():
     session = Session(engine)
 
     # Select all entries from the database
-    results = session.query(Locations.location , Locations.map).all()
+    results = session.query(Locations.location , Locations.map , Locations.X , Locations.y).filter(Locations.map == Maps).all()
 
     # initializing the map locations dictionary that will be served
     mapLocations = {
         'Location':[] , 
-        'Map': []
+        'Map': [] , 
+        'x': [] , 
+        'y':[]
     };
 
     # populating mapLocations with results from query
     for row in results:
         mapLocations['Location'].append(row[0]);
         mapLocations['Map'].append(row[1]);
+        mapLocations['x'].append(row[2]);
+        mapLocations['y'].append(row[3])
 
     return mapLocations
 

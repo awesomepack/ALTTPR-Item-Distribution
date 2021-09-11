@@ -1,3 +1,9 @@
+d3.json('http://localhost:5000/viz1' , function(data) {
+    console.log(data);
+})
+// Delete the above code when done debugging the app.py
+
+
 function Charts(sample){
     var name =  "Ganon's Tower - Compass Room - Bottom Right";
     var items = ['BossHeartContainer', 'Bottle', 'TenArrows', 'Flippers', 'TwentyRupees', 'other'];
@@ -24,4 +30,7 @@ function Charts(sample){
         };
 
     Plotly.newPlot("bar", bar, barshape);
-    
+
+
+
+
