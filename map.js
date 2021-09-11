@@ -227,12 +227,18 @@ console.log(maplocations)
 //   )
 // );
 
+// var linkloc = [];
 
-for (var i = 0; i < maplocations.length; i++) {
-  marker = new L.marker([maplocations[i][1],maplocations[i][2]])
-    .bindPopup(maplocations[i][0])
-    .addTo(map);
-  }
+// for (var i = 0; i < maplocations.Location; i++) {
+//   marker = new L.marker([maplocations.x[i],maplocations.y[i]])
+//     .bindPopup(maplocations.map[i])
+// .addTo(map);}
+
+
+L.marker([83, 102]).addTo(map)
+    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    .openPopup();
+
 
 
 
