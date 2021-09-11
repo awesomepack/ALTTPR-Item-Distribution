@@ -10,11 +10,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.sql.schema import MetaData
 from login import postgres_password , postgres_username
 from flask import Flask , redirect , url_for , request , render_template
-from flask_cors import CORS , cross_origin
 from flask import jsonify
 
 app = Flask(__name__)
-CORS(app , support_credentials = True)
+
 
 @app.route('/ALTTPR')
 
@@ -25,7 +24,6 @@ def home():
     # Function to render potential home page with information on API routes
 
 @app.route('/viz1')
-@cross_origin(supports_credentials = True)
 def query_viz1():
 
     # Creating connection to alttpr database
