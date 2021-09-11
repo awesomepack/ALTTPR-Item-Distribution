@@ -1,7 +1,12 @@
-# The Flask application will go here
-# Starting out with a tutorial
 
 # importing dependencies
+import sqlalchemy
+from sqlalchemy import engine
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import func
+from sqlalchemy import create_engine
+from login import postgres_password , postgres_username
 from flask import Flask , redirect , url_for , request , render_template
 
 app = Flask(__name__)
@@ -15,9 +20,15 @@ def home():
 
 @app.route('/viz1')
 def query_viz1():
+    # Creating connection to alttpr database
+    db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
+    engine = create_engine(db_string , echo = True)
 
-    # Function to query main data in preparation of viz1
-    return 'This is endpoint for viz1 data'
+    # Reflecting database
+    Base = automap_base()
+    Base.prepare(engine , reflect = True)
+    return str(Base.classes.keys())
+
 
 @app.route('/viz2/<Location>')
 def query_viz2(Location):
@@ -30,7 +41,7 @@ def query_viz2(Location):
         'occurrence': []
     };
 
-    # Returns a dataObject on the enpoint
+    # Returns a dataObject on the endpoint
 
 
 @app.route('/viz3')
