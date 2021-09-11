@@ -24,9 +24,9 @@ def home():
 
     # Function to render potential home page with information on API routes
 
-@app.route('/viz1/<Maps>')
+@app.route('/viz1')
 @cross_origin(supports_credentials = True)
-def query_viz1(Maps):
+def query_viz1():
 
     # Creating connection to alttpr database
     db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
@@ -43,22 +43,22 @@ def query_viz1(Maps):
     session = Session(engine)
 
     # Select all entries from the database
-    results = session.query(Locations.location , Locations.map , Locations.X , Locations.y).filter(Locations.map == Maps).all()
+    results = session.query(Locations.location , Locations.map , Locations.X , Locations.y).all()
 
     # initializing the map locations dictionary that will be served
-    mapLocations = {
-        'Location':[] , 
-        'Map': [] , 
-        'x': [] , 
-        'y':[]
-    };
+    mapLocations = []
 
     # populating mapLocations with results from query
     for row in results:
-        mapLocations['Location'].append(row[0]);
-        mapLocations['Map'].append(row[1]);
-        mapLocations['x'].append(row[2]);
-        mapLocations['y'].append(row[3])
+        mapLocations.append([row[0] , [row[2], row[3]]]);
+        # mapLocations['Map'].append(row[1]);
+        # mapLocations['x'].append(2007 - row[2]);
+
+        # if row[1] == 'darkworld':
+
+        #     mapLocations['y'].append(2007 + row[3])
+        # else:
+        #     mapLocations['y'].append(row[3])
 
     return jsonify(mapLocations)
 
