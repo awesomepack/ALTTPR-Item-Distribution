@@ -53,39 +53,7 @@ def makeTables(dropfirst = True):
 
 
 def loadSample(maketables = True, dropfirst = True):
-    return loadData(seedparser.sample_filepath, maketables=maketables, dropfirst=dropfirst)
-
-##########
-# Load Data
-##########
-
-def loadData(filepath, maketables = True, dropfirst = True):
-    session = Session()
-    if maketables: makeTables(dropfirst)
-    
-    seed = seedparser.Seed(filepath)
-    
-    session.add(tables.Locations(seed_guid = seed.seed_guid, locations = seed.locations))
-    session.add(tables.Items(seed_guid = seed.seed_guid, items = seed.items))
-    for location, item in seed.locations.items():
-        session.add(tables.Seeds(seed_guid = seed.seed_guid, item = item, location = location))
-    # session.add(tables.Special(seed_guid = seed.seed_guid, special = seed.special))
-    for shop in seed.shops:
-        shop_dict = {}
-        shop_dict['name'] = shop['location']
-        shop_dict['type'] = shop['type']
-        shop_dict['item_1'] = shop['item_0']['item']
-        shop_dict['price_1'] = shop['item_0']['price']
-        if 'item_1' in shop.keys():
-            shop_dict['item_2'] = shop['item_1']['item']
-            shop_dict['price_2'] = shop['item_1']['price']
-        if 'item_2' in shop.keys():
-            shop_dict['item_3'] = shop['item_2']['item']
-            shop_dict['price_3'] = shop['item_2']['price']
-        session.add(tables.Shops(seed_guid = seed.seed_guid, shops = shop_dict))
-
-    session.commit()
-    session.close()
+    return loadAllData(seedparser.sample_folderpath, maketables=maketables, dropfirst=dropfirst)
 
 def loadSeed(filepath : str, session : Session):
     seed = seedparser.Seed(filepath)
@@ -108,7 +76,6 @@ def loadSeed(filepath : str, session : Session):
             shop_dict['item_3'] = shop['item_2']['item']
             shop_dict['price_3'] = shop['item_2']['price']
         session.add(tables.Shops(seed_guid = seed.seed_guid, shops = shop_dict))
-
     pass
 
 def loadAllData(folderpath : str, limit = -1, batchsize = 1000, maketables = True, dropfirst = True):

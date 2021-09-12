@@ -2,7 +2,7 @@ import collections
 import json
 import re
 
-sample_filepath = 'resources/seeds/alttpr_none_standard_ganon_bJqPVL0byeOBX2K.json'
+sample_folderpath = 'resources/seeds'
 
 def getJson(filepath : str):
     with open(filepath) as file:
@@ -13,7 +13,7 @@ def getLocationMap() -> dict:
     return get_sample().location_map
 
 def get_sample():
-    return Seed(sample_filepath)
+    return Seed(sample_folderpath)
 
 pattern = 'ganon_(.+)\.json'
 
