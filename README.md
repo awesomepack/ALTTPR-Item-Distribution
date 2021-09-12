@@ -24,4 +24,8 @@ Once you run [locations.py](locations.py) there should be a new table in the `al
 
 #### [data.py](data.py)
 
-Once you run [data.py](data.py) there should be two new tables - `items` and `locations` - with one row of sample data each as well as a third table, `shops` with multiple rows all belonging to the same seed.
+To run:  Import or execute the [data.py](data.py) script in an interactive python terminal and then use the `loadSample()` function to test the database writing, or `loadAllData(folderpath)` to load files in bulk.  
+
+-- Warning --
+
+`loadAllData` will drop the tables first before inserting data from the folder.  To preserve old values be sure to set the parameter `dropfirst=False`

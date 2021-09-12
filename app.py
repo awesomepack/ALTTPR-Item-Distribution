@@ -16,6 +16,11 @@ import tables
 
 app = Flask(__name__)
 
+# Creating connection to alttpr database
+db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
+engine = create_engine(db_string , echo = True)
+
+
 @app.after_request
 def add_header(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
@@ -23,23 +28,13 @@ def add_header(response):
 
 @app.route('/ALTTPR')
 def home():
-
     return 'This is the home page'
 
     # Function to render potential home page with information on API routes
 
 
-
-
 @app.route('/viz1')
 def query_viz1():
-
-    # Creating connection to alttpr database
-    db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
-    engine = create_engine(db_string , echo = True)
-
-    # passing reference to the location-metadata table
-    locations_table = tables.Locations.__table__
 
     # Begin Session
     session = Session(engine)
@@ -76,12 +71,6 @@ def query_viz1():
 @app.route('/viz2/<location_name>')
 def query_viz2(location_name):
 
-    #Locations table
-
-    # Creating connection to alttpr database
-    db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
-    engine = create_engine(db_string , echo = True)
-
     # Begin Session
     session = Session(engine)
 
@@ -110,13 +99,8 @@ def query_viz2(location_name):
 @app.route('/viz3')
 def query_viz3():
     
+    if __name__ == '__main__':
 
-
-
-
-
-if __name__ == '__main__':
-
-    app.run( debug = True)
+        app.run( debug = True)
 
 

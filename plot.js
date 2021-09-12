@@ -1,7 +1,4 @@
 
-// Delete the above code when done debugging the app.py
-
-
 var test_data = ["Ganon's Tower - Compass Room - Bottom Right", ['BossHeartContainer', 'Bottle', 'TenArrows', 'Flippers', 'TwentyRupees', 'other'], [12, 14, 7, 19, 3, 45]];
 
 function charts(sample){

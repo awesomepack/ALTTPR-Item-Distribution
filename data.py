@@ -52,14 +52,14 @@ def makeTables(dropfirst = True):
 ##########
 
 
-def load_sample(maketables = True, dropfirst = True):
-    return load_data(seedparser.sample_filepath, maketables=maketables, dropfirst=dropfirst)
+def loadSample(maketables = True, dropfirst = True):
+    return loadData(seedparser.sample_filepath, maketables=maketables, dropfirst=dropfirst)
 
 ##########
 # Load Data
 ##########
 
-def load_data(filepath, maketables = True, dropfirst = True):
+def loadData(filepath, maketables = True, dropfirst = True):
     session = Session()
     if maketables: makeTables(dropfirst)
     
@@ -133,6 +133,3 @@ def loadAllData(folderpath : str, limit = -1, batchsize = 1000, maketables = Tru
                     session.commit()
     session.commit()
     session.close()
-    
-
-
