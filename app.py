@@ -79,16 +79,16 @@ def query_viz2(location_name):
 
     #var test_data = ["Location_name", ['list of items'], ['list of values']];
     # initializing locationItems
-    locationItems = []
-
+    items = []
+    count = []
     # Populating locationItems
     for row in results:
-        locationItems.append(row[0])# appending count -- ideally a pct
-        locationItems.append(row[1])# appending item name
+        count.append(row[0])# appending count -- ideally a pct
+        items.append(row[1])# appending item name
 
-    
+    session.close()
     # Returning json data
-    return jsonify(locationItems)
+    return jsonify([location_name, items, count])
 
 
 @app.route('/viz3/<item_name>')
@@ -111,7 +111,7 @@ def query_viz3(item_name):
         itemLocations.append(row[0])# appending count -- ideally a pct
         itemLocations.append(row[1])# appending item name
 
-    
+    session.close()
     # Returning json data
     return jsonify(itemLocations)
     

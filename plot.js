@@ -1,10 +1,10 @@
 
 var test_data = ["Ganon's Tower - Compass Room - Bottom Right", ['BossHeartContainer', 'Bottle', 'TenArrows', 'Flippers', 'TwentyRupees', 'other'], [12, 14, 7, 19, 3, 45]];
 
-function charts(sample){
-  var name =  sample[0];
-  var items = sample[1];
-  var values = sample[2];
+function charts(data){
+  var name =  data[0];
+  var items = data[1];
+  var values = data[2];
 
   var bar =[{
     x: items,
