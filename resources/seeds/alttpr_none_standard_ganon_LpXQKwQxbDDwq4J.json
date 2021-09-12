@@ -1,0 +1,622 @@
+{
+    "Equipped": {
+        "Equipment Slot 1": "BossHeartContainer:331",
+        "Equipment Slot 2": "BossHeartContainer:331",
+        "Equipment Slot 3": "BossHeartContainer:331"
+    },
+    "Light World": {
+        "Sahasrahla's Hut - Left:331": "TenArrows:331",
+        "Sahasrahla's Hut - Middle:331": "ProgressiveGlove:331",
+        "Sahasrahla's Hut - Right:331": "TwentyRupees:331",
+        "Sahasrahla:331": "ProgressiveSword:331",
+        "King Zora:331": "ThreeBombs:331",
+        "Potion Shop:331": "TwentyRupees:331",
+        "Zora's Ledge:331": "TwentyRupees:331",
+        "Waterfall Fairy - Left:331": "TwentyRupees:331",
+        "Waterfall Fairy - Right:331": "TwentyRupees:331",
+        "Master Sword Pedestal:331": "ThreeBombs:331",
+        "King's Tomb:331": "ProgressiveArmor:331",
+        "Kakariko Tavern:331": "Bombos:331",
+        "Chicken House:331": "BossHeartContainer:331",
+        "Kakariko Well - Top:331": "IceRod:331",
+        "Kakariko Well - Left:331": "ThreeHundredRupees:331",
+        "Kakariko Well - Middle:331": "Powder:331",
+        "Kakariko Well - Right:331": "BossHeartContainer:331",
+        "Kakariko Well - Bottom:331": "FiftyRupees:331",
+        "Blind's Hideout - Top:331": "BottleWithBee:331",
+        "Blind's Hideout - Left:331": "Boomerang:331",
+        "Blind's Hideout - Right:331": "PieceOfHeart:331",
+        "Blind's Hideout - Far Left:331": "TenArrows:331",
+        "Blind's Hideout - Far Right:331": "PieceOfHeart:331",
+        "Pegasus Rocks:331": "ProgressiveBow:331",
+        "Bottle Merchant:331": "TwentyRupees:331",
+        "Magic Bat:331": "PieceOfHeart:331",
+        "Sick Kid:331": "FiveRupees:331",
+        "Lost Woods Hideout:331": "Lamp:331",
+        "Lumberjack Tree:331": "BossHeartContainer:331",
+        "Graveyard Ledge:331": "ThreeBombs:331",
+        "Mushroom:331": "ThreeBombs:331",
+        "Floodgate Chest:331": "Shovel:331",
+        "Link's House:331": "FiftyRupees:331",
+        "Aginah's Cave:331": "TwentyRupees:331",
+        "Mini Moldorm Cave - Far Left:331": "BossHeartContainer:331",
+        "Mini Moldorm Cave - Left:331": "MagicMirror:331",
+        "Mini Moldorm Cave - Right:331": "OneHundredRupees:331",
+        "Mini Moldorm Cave - Far Right:331": "TwentyRupees:331",
+        "Ice Rod Cave:331": "BottleWithFairy:331",
+        "Hobo:331": "ThreeHundredRupees:331",
+        "Bombos Tablet:331": "BottleWithBluePotion:331",
+        "Cave 45:331": "PieceOfHeart:331",
+        "Checkerboard Cave:331": "Quake:331",
+        "Mini Moldorm Cave - NPC:331": "ProgressiveShield:331",
+        "Library:331": "ThreeBombs:331",
+        "Maze Race:331": "TenBombs:331",
+        "Desert Ledge:331": "TwentyRupees:331",
+        "Lake Hylia Island:331": "TwentyRupees:331",
+        "Sunken Treasure:331": "BookOfMudora:331",
+        "Flute Spot:331": "ThreeHundredRupees:331"
+    },
+    "Hyrule Castle": {
+        "Sanctuary:331": "FiveRupees:331",
+        "Sewers - Secret Room - Left:331": "MoonPearl:331",
+        "Sewers - Secret Room - Middle:331": "MapH2:331",
+        "Sewers - Secret Room - Right:331": "OneRupee:331",
+        "Sewers - Dark Cross:331": "ThreeBombs:331",
+        "Hyrule Castle - Boomerang Chest:331": "ThreeBombs:331",
+        "Hyrule Castle - Map Chest:331": "KeyH2:331",
+        "Hyrule Castle - Zelda's Cell:331": "PieceOfHeart:331",
+        "Link's Uncle:331": "ProgressiveBow:331",
+        "Secret Passage:331": "TwentyRupees:331"
+    },
+    "Eastern Palace": {
+        "Eastern Palace - Compass Chest:331": "PieceOfHeart:331",
+        "Eastern Palace - Big Chest:331": "TwentyRupees:331",
+        "Eastern Palace - Cannonball Chest:331": "BigKeyP1:331",
+        "Eastern Palace - Big Key Chest:331": "HeartContainer:331",
+        "Eastern Palace - Map Chest:331": "CompassP1:331",
+        "Eastern Palace - Boss:331": "MapP1:331",
+        "Eastern Palace - Prize:331": "Crystal5:331"
+    },
+    "Desert Palace": {
+        "Desert Palace - Big Chest:331": "KeyP2:331",
+        "Desert Palace - Map Chest:331": "MapP2:331",
+        "Desert Palace - Torch:331": "BigKeyP2:331",
+        "Desert Palace - Big Key Chest:331": "PieceOfHeart:331",
+        "Desert Palace - Compass Chest:331": "ThreeHundredRupees:331",
+        "Desert Palace - Boss:331": "CompassP2:331",
+        "Desert Palace - Prize:331": "PendantOfCourage:331"
+    },
+    "Death Mountain": {
+        "Old Man:331": "OneRupee:331",
+        "Spectacle Rock Cave:331": "Hammer:331",
+        "Ether Tablet:331": "CaneOfByrna:331",
+        "Spectacle Rock:331": "TwentyRupees:331",
+        "Spiral Cave:331": "PieceOfHeart:331",
+        "Mimic Cave:331": "PieceOfHeart:331",
+        "Paradox Cave Lower - Far Left:331": "TwentyRupees:331",
+        "Paradox Cave Lower - Left:331": "PegasusBoots:331",
+        "Paradox Cave Lower - Right:331": "TenArrows:331",
+        "Paradox Cave Lower - Far Right:331": "TwentyRupees:331",
+        "Paradox Cave Lower - Middle:331": "BugCatchingNet:331",
+        "Paradox Cave Upper - Left:331": "BossHeartContainer:331",
+        "Paradox Cave Upper - Right:331": "Cape:331",
+        "Floating Island:331": "TwentyRupees:331"
+    },
+    "Tower Of Hera": {
+        "Tower of Hera - Big Key Chest:331": "BigKeyP3:331",
+        "Tower of Hera - Basement Cage:331": "MapP3:331",
+        "Tower of Hera - Map Chest:331": "KeyP3:331",
+        "Tower of Hera - Compass Chest:331": "Flippers:331",
+        "Tower of Hera - Big Chest:331": "TwentyRupees:331",
+        "Tower of Hera - Boss:331": "CompassP3:331",
+        "Tower of Hera - Prize:331": "PendantOfWisdom:331"
+    },
+    "Castle Tower": {
+        "Castle Tower - Room 03:331": "KeyA1:331",
+        "Castle Tower - Dark Maze:331": "KeyA1:331"
+    },
+    "Dark World": {
+        "Superbunny Cave - Top:331": "TwentyRupees:331",
+        "Superbunny Cave - Bottom:331": "ProgressiveSword:331",
+        "Hookshot Cave - Top Right:331": "TenArrows:331",
+        "Hookshot Cave - Top Left:331": "TwentyRupees:331",
+        "Hookshot Cave - Bottom Left:331": "PieceOfHeart:331",
+        "Hookshot Cave - Bottom Right:331": "TwentyRupees:331",
+        "Spike Cave:331": "TwentyRupees:331",
+        "Catfish:331": "TenArrows:331",
+        "Pyramid:331": "TwentyRupees:331",
+        "Pyramid Fairy - Left:331": "BottleWithGoldBee:331",
+        "Pyramid Fairy - Right:331": "TenArrows:331",
+        "Brewery:331": "TwentyRupees:331",
+        "C-Shaped House:331": "OcarinaInactive:331",
+        "Chest Game:331": "TenArrows:331",
+        "Hammer Pegs:331": "FiveRupees:331",
+        "Bumper Cave:331": "ThreeBombs:331",
+        "Blacksmith:331": "RedBoomerang:331",
+        "Purple Chest:331": "PieceOfHeart:331",
+        "Hype Cave - Top:331": "BossHeartContainer:331",
+        "Hype Cave - Middle Right:331": "ThreeBombs:331",
+        "Hype Cave - Middle Left:331": "ProgressiveSword:331",
+        "Hype Cave - Bottom:331": "FireRod:331",
+        "Stumpy:331": "Hookshot:331",
+        "Hype Cave - NPC:331": "BossHeartContainer:331",
+        "Digging Game:331": "CaneOfSomaria:331",
+        "Mire Shed - Left:331": "FiftyRupees:331",
+        "Mire Shed - Right:331": "TenArrows:331"
+    },
+    "Dark Palace": {
+        "Palace of Darkness - Shooter Room:331": "KeyD1:331",
+        "Palace of Darkness - Big Key Chest:331": "PieceOfHeart:331",
+        "Palace of Darkness - The Arena - Ledge:331": "KeyD1:331",
+        "Palace of Darkness - The Arena - Bridge:331": "BigKeyD1:331",
+        "Palace of Darkness - Stalfos Basement:331": "KeyD1:331",
+        "Palace of Darkness - Map Chest:331": "KeyD1:331",
+        "Palace of Darkness - Big Chest:331": "ProgressiveShield:331",
+        "Palace of Darkness - Compass Chest:331": "CompassD1:331",
+        "Palace of Darkness - Harmless Hellway:331": "KeyD1:331",
+        "Palace of Darkness - Dark Basement - Left:331": "BossHeartContainer:331",
+        "Palace of Darkness - Dark Basement - Right:331": "KeyD1:331",
+        "Palace of Darkness - Dark Maze - Top:331": "PieceOfHeart:331",
+        "Palace of Darkness - Dark Maze - Bottom:331": "MapD1:331",
+        "Palace of Darkness - Boss:331": "ProgressiveSword:331",
+        "Palace of Darkness - Prize:331": "Crystal3:331"
+    },
+    "Swamp Palace": {
+        "Swamp Palace - Entrance:331": "KeyD2:331",
+        "Swamp Palace - Big Chest:331": "MapD2:331",
+        "Swamp Palace - Big Key Chest:331": "CompassD2:331",
+        "Swamp Palace - Map Chest:331": "BigKeyD2:331",
+        "Swamp Palace - West Chest:331": "PieceOfHeart:331",
+        "Swamp Palace - Compass Chest:331": "ThreeBombs:331",
+        "Swamp Palace - Flooded Room - Left:331": "ThreeBombs:331",
+        "Swamp Palace - Flooded Room - Right:331": "PieceOfHeart:331",
+        "Swamp Palace - Waterfall Room:331": "Mushroom:331",
+        "Swamp Palace - Boss:331": "PieceOfHeart:331",
+        "Swamp Palace - Prize:331": "Crystal4:331"
+    },
+    "Skull Woods": {
+        "Skull Woods - Big Chest:331": "KeyD3:331",
+        "Skull Woods - Big Key Chest:331": "MapD3:331",
+        "Skull Woods - Compass Chest:331": "CompassD3:331",
+        "Skull Woods - Map Chest:331": "ThreeBombs:331",
+        "Skull Woods - Bridge Room:331": "BigKeyD3:331",
+        "Skull Woods - Pot Prison:331": "KeyD3:331",
+        "Skull Woods - Pinball Room:331": "KeyD3:331",
+        "Skull Woods - Boss:331": "TenArrows:331",
+        "Skull Woods - Prize:331": "Crystal1:331"
+    },
+    "Thieves Town": {
+        "Thieves' Town - Attic:331": "ThreeBombs:331",
+        "Thieves' Town - Big Key Chest:331": "CompassD4:331",
+        "Thieves' Town - Map Chest:331": "ProgressiveGlove:331",
+        "Thieves' Town - Compass Chest:331": "MapD4:331",
+        "Thieves' Town - Ambush Chest:331": "BigKeyD4:331",
+        "Thieves' Town - Big Chest:331": "KeyD4:331",
+        "Thieves' Town - Blind's Cell:331": "PieceOfHeart:331",
+        "Thieves' Town - Boss:331": "PieceOfHeart:331",
+        "Thieves' Town - Prize:331": "Crystal6:331"
+    },
+    "Ice Palace": {
+        "Ice Palace - Big Key Chest:331": "PieceOfHeart:331",
+        "Ice Palace - Compass Chest:331": "KeyD5:331",
+        "Ice Palace - Map Chest:331": "PieceOfHeart:331",
+        "Ice Palace - Spike Room:331": "KeyD5:331",
+        "Ice Palace - Freezor Chest:331": "BigKeyD5:331",
+        "Ice Palace - Iced T Room:331": "CompassD5:331",
+        "Ice Palace - Big Chest:331": "MapD5:331",
+        "Ice Palace - Boss:331": "TwentyRupees:331",
+        "Ice Palace - Prize:331": "PendantOfPower:331"
+    },
+    "Misery Mire": {
+        "Misery Mire - Big Chest:331": "KeyD6:331",
+        "Misery Mire - Main Lobby:331": "KeyD6:331",
+        "Misery Mire - Big Key Chest:331": "PieceOfHeart:331",
+        "Misery Mire - Compass Chest:331": "MapD6:331",
+        "Misery Mire - Bridge Chest:331": "KeyD6:331",
+        "Misery Mire - Map Chest:331": "BigKeyD6:331",
+        "Misery Mire - Spike Chest:331": "ProgressiveShield:331",
+        "Misery Mire - Boss:331": "CompassD6:331",
+        "Misery Mire - Prize:331": "Crystal2:331"
+    },
+    "Turtle Rock": {
+        "Turtle Rock - Chain Chomps:331": "BigKeyD7:331",
+        "Turtle Rock - Compass Chest:331": "ThreeHundredRupees:331",
+        "Turtle Rock - Roller Room - Left:331": "KeyD7:331",
+        "Turtle Rock - Roller Room - Right:331": "KeyD7:331",
+        "Turtle Rock - Big Chest:331": "ProgressiveArmor:331",
+        "Turtle Rock - Big Key Chest:331": "FiftyRupees:331",
+        "Turtle Rock - Crystaroller Room:331": "KeyD7:331",
+        "Turtle Rock - Eye Bridge - Bottom Left:331": "HalfMagic:331",
+        "Turtle Rock - Eye Bridge - Bottom Right:331": "PieceOfHeart:331",
+        "Turtle Rock - Eye Bridge - Top Left:331": "CompassD7:331",
+        "Turtle Rock - Eye Bridge - Top Right:331": "KeyD7:331",
+        "Turtle Rock - Boss:331": "MapD7:331",
+        "Turtle Rock - Prize:331": "Crystal7:331"
+    },
+    "Ganons Tower": {
+        "Ganon's Tower - Bob's Torch:331": "BossHeartContainer:331",
+        "Ganon's Tower - DMs Room - Top Left:331": "KeyA2:331",
+        "Ganon's Tower - DMs Room - Top Right:331": "TenArrows:331",
+        "Ganon's Tower - DMs Room - Bottom Left:331": "CompassA2:331",
+        "Ganon's Tower - DMs Room - Bottom Right:331": "ThreeBombs:331",
+        "Ganon's Tower - Randomizer Room - Top Left:331": "FiftyRupees:331",
+        "Ganon's Tower - Randomizer Room - Top Right:331": "TwentyRupees:331",
+        "Ganon's Tower - Randomizer Room - Bottom Left:331": "TenArrows:331",
+        "Ganon's Tower - Randomizer Room - Bottom Right:331": "TwentyRupees:331",
+        "Ganon's Tower - Firesnake Room:331": "BigKeyA2:331",
+        "Ganon's Tower - Map Chest:331": "TwentyRupees:331",
+        "Ganon's Tower - Big Chest:331": "FiftyRupees:331",
+        "Ganon's Tower - Hope Room - Left:331": "KeyA2:331",
+        "Ganon's Tower - Hope Room - Right:331": "ThreeBombs:331",
+        "Ganon's Tower - Bob's Chest:331": "ThreeBombs:331",
+        "Ganon's Tower - Tile Room:331": "KeyA2:331",
+        "Ganon's Tower - Compass Room - Top Left:331": "BossHeartContainer:331",
+        "Ganon's Tower - Compass Room - Top Right:331": "PieceOfHeart:331",
+        "Ganon's Tower - Compass Room - Bottom Left:331": "FiftyRupees:331",
+        "Ganon's Tower - Compass Room - Bottom Right:331": "TwentyRupees:331",
+        "Ganon's Tower - Big Key Chest:331": "Ether:331",
+        "Ganon's Tower - Big Key Room - Left:331": "Arrow:331",
+        "Ganon's Tower - Big Key Room - Right:331": "PieceOfHeart:331",
+        "Ganon's Tower - Mini Helmasaur Room - Left:331": "MapA2:331",
+        "Ganon's Tower - Mini Helmasaur Room - Right:331": "FiveRupees:331",
+        "Ganon's Tower - Pre-Moldorm Chest:331": "KeyA2:331",
+        "Ganon's Tower - Moldorm Chest:331": "TenArrows:331"
+    },
+    "Special": {
+        "Turtle Rock Medallion:331": "Quake:331",
+        "Misery Mire Medallion:331": "Quake:331",
+        "Waterfall Bottle:331": "BottleWithGoldBee:331",
+        "Pyramid Bottle:331": "BottleWithBluePotion:331"
+    },
+    "Shops": [
+        {
+            "location": "Light World Kakariko Shop",
+            "type": "Shop",
+            "item_0": {
+                "item": "RedPotion:331",
+                "price": 150
+            },
+            "item_1": {
+                "item": "Heart:331",
+                "price": 10
+            },
+            "item_2": {
+                "item": "TenBombs:331",
+                "price": 50
+            }
+        },
+        {
+            "location": "Light World Lake Hylia Shop",
+            "type": "Shop",
+            "item_0": {
+                "item": "RedPotion:331",
+                "price": 150
+            },
+            "item_1": {
+                "item": "Heart:331",
+                "price": 10
+            },
+            "item_2": {
+                "item": "TenBombs:331",
+                "price": 50
+            }
+        },
+        {
+            "location": "Capacity Upgrade",
+            "type": "Shop",
+            "item_0": {
+                "item": "BombUpgrade5:331",
+                "price": 100
+            },
+            "item_1": {
+                "item": "ArrowUpgrade5:331",
+                "price": 100
+            }
+        },
+        {
+            "location": "Light World Death Mountain Shop",
+            "type": "Shop",
+            "item_0": {
+                "item": "RedPotion:331",
+                "price": 150
+            },
+            "item_1": {
+                "item": "Heart:331",
+                "price": 10
+            },
+            "item_2": {
+                "item": "TenBombs:331",
+                "price": 50
+            }
+        },
+        {
+            "location": "Dark World Death Mountain Shop",
+            "type": "Shop",
+            "item_0": {
+                "item": "RedPotion:331",
+                "price": 150
+            },
+            "item_1": {
+                "item": "Heart:331",
+                "price": 10
+            },
+            "item_2": {
+                "item": "TenBombs:331",
+                "price": 50
+            }
+        },
+        {
+            "location": "Dark World Potion Shop",
+            "type": "Shop",
+            "item_0": {
+                "item": "RedPotion:331",
+                "price": 150
+            },
+            "item_1": {
+                "item": "BlueShield:331",
+                "price": 50
+            },
+            "item_2": {
+                "item": "TenBombs:331",
+                "price": 50
+            }
+        },
+        {
+            "location": "Dark World Forest Shop",
+            "type": "Shop",
+            "item_0": {
+                "item": "RedShield:331",
+                "price": 500
+            },
+            "item_1": {
+                "item": "Bee:331",
+                "price": 10
+            },
+            "item_2": {
+                "item": "TenArrows:331",
+                "price": 30
+            }
+        },
+        {
+            "location": "Dark World Lumberjack Hut Shop",
+            "type": "Shop",
+            "item_0": {
+                "item": "RedPotion:331",
+                "price": 150
+            },
+            "item_1": {
+                "item": "BlueShield:331",
+                "price": 50
+            },
+            "item_2": {
+                "item": "TenBombs:331",
+                "price": 50
+            }
+        },
+        {
+            "location": "Dark World Outcasts Shop",
+            "type": "Shop",
+            "item_0": {
+                "item": "RedPotion:331",
+                "price": 150
+            },
+            "item_1": {
+                "item": "BlueShield:331",
+                "price": 50
+            },
+            "item_2": {
+                "item": "TenBombs:331",
+                "price": 50
+            }
+        },
+        {
+            "location": "Dark World Lake Hylia Shop",
+            "type": "Shop",
+            "item_0": {
+                "item": "RedPotion:331",
+                "price": 150
+            },
+            "item_1": {
+                "item": "BlueShield:331",
+                "price": 50
+            },
+            "item_2": {
+                "item": "TenBombs:331",
+                "price": 50
+            }
+        }
+    ],
+    "playthrough": {
+        "longest_item_chain": 15,
+        "1": {
+            "Hyrule Castle": {
+                "Link's Uncle:331": "ProgressiveBow:331"
+            }
+        },
+        "2": {
+            "Hyrule Castle": {
+                "Hyrule Castle - Zelda's Cell:331": "PieceOfHeart:331"
+            }
+        },
+        "3": {
+            "Hyrule Castle": {
+                "Sewers - Secret Room - Left:331": "MoonPearl:331"
+            }
+        },
+        "4": {
+            "Light World": {
+                "Sahasrahla's Hut - Middle:331": "ProgressiveGlove:331",
+                "Chicken House:331": "BossHeartContainer:331",
+                "Kakariko Well - Top:331": "IceRod:331",
+                "Kakariko Well - Middle:331": "Powder:331",
+                "Kakariko Well - Right:331": "BossHeartContainer:331",
+                "Blind's Hideout - Top:331": "BottleWithBee:331",
+                "Blind's Hideout - Right:331": "PieceOfHeart:331",
+                "Blind's Hideout - Far Right:331": "PieceOfHeart:331",
+                "Lost Woods Hideout:331": "Lamp:331",
+                "Mini Moldorm Cave - Far Left:331": "BossHeartContainer:331",
+                "Mini Moldorm Cave - Left:331": "MagicMirror:331",
+                "Ice Rod Cave:331": "BottleWithFairy:331"
+            },
+            "Eastern Palace": {
+                "Eastern Palace - Compass Chest:331": "PieceOfHeart:331",
+                "Eastern Palace - Cannonball Chest:331": "BigKeyP1:331"
+            }
+        },
+        "5": {
+            "Eastern Palace": {
+                "Eastern Palace - Big Key Chest:331": "HeartContainer:331",
+                "Eastern Palace - Prize:331": "Crystal5:331"
+            },
+            "Death Mountain": {
+                "Spectacle Rock Cave:331": "Hammer:331"
+            }
+        },
+        "6": {
+            "Light World": {
+                "Magic Bat:331": "PieceOfHeart:331",
+                "Cave 45:331": "PieceOfHeart:331"
+            },
+            "Death Mountain": {
+                "Spiral Cave:331": "PieceOfHeart:331",
+                "Paradox Cave Lower - Left:331": "PegasusBoots:331",
+                "Paradox Cave Upper - Left:331": "BossHeartContainer:331",
+                "Paradox Cave Upper - Right:331": "Cape:331"
+            },
+            "Tower Of Hera": {
+                "Tower of Hera - Big Key Chest:331": "BigKeyP3:331"
+            },
+            "Dark World": {
+                "C-Shaped House:331": "OcarinaInactive:331",
+                "Hype Cave - Top:331": "BossHeartContainer:331",
+                "Hype Cave - Middle Left:331": "UncleSword:331",
+                "Hype Cave - Bottom:331": "FireRod:331",
+                "Stumpy:331": "Hookshot:331",
+                "Hype Cave - NPC:331": "BossHeartContainer:331",
+                "Digging Game:331": "CaneOfSomaria:331"
+            }
+        },
+        "7": {
+            "Light World": {
+                "Pegasus Rocks:331": "ProgressiveBow:331"
+            },
+            "Tower Of Hera": {
+                "Tower of Hera - Compass Chest:331": "Flippers:331"
+            },
+            "Dark Palace": {
+                "Palace of Darkness - The Arena - Bridge:331": "BigKeyD1:331"
+            },
+            "Skull Woods": {
+                "Skull Woods - Bridge Room:331": "BigKeyD3:331"
+            },
+            "Thieves Town": {
+                "Thieves' Town - Map Chest:331": "ProgressiveGlove:331",
+                "Thieves' Town - Ambush Chest:331": "BigKeyD4:331"
+            }
+        },
+        "8": {
+            "Light World": {
+                "Checkerboard Cave:331": "Quake:331"
+            },
+            "Dark World": {
+                "Superbunny Cave - Bottom:331": "ProgressiveSword:331"
+            },
+            "Thieves Town": {
+                "Thieves' Town - Blind's Cell:331": "PieceOfHeart:331"
+            }
+        },
+        "9": {
+            "Dark Palace": {
+                "Palace of Darkness - Boss:331": "ProgressiveSword:331",
+                "Palace of Darkness - Prize:331": "Crystal3:331"
+            },
+            "Swamp Palace": {
+                "Swamp Palace - Prize:331": "Crystal4:331"
+            },
+            "Skull Woods": {
+                "Skull Woods - Prize:331": "Crystal1:331"
+            },
+            "Thieves Town": {
+                "Thieves' Town - Prize:331": "Crystal6:331"
+            }
+        },
+        "10": {
+            "Misery Mire": {
+                "Misery Mire - Map Chest:331": "BigKeyD6:331"
+            },
+            "Turtle Rock": {
+                "Turtle Rock - Chain Chomps:331": "BigKeyD7:331"
+            }
+        },
+        "11": {
+            "Misery Mire": {
+                "Misery Mire - Prize:331": "Crystal2:331"
+            }
+        },
+        "12": {
+            "Turtle Rock": {
+                "Turtle Rock - Prize:331": "Crystal7:331"
+            }
+        },
+        "13": {
+            "Ganons Tower": {
+                "Ganon's Tower - Firesnake Room:331": "BigKeyA2:331"
+            }
+        },
+        "14": {
+            "Ganons Tower": {
+                "Agahnim 2:331": "DefeatAgahnim2:331"
+            }
+        },
+        "15": {
+            "Dark World": {
+                "Ganon:331": "Triforce:331"
+            }
+        },
+        "regions_visited": 30
+    },
+    "meta": {
+        "item_placement": "basic",
+        "item_pool": "normal",
+        "item_functionality": "normal",
+        "dungeon_items": "standard",
+        "logic": "NoGlitches",
+        "accessibility": "item",
+        "rom_mode": "NoGlitches",
+        "goal": "ganon",
+        "build": "2021-06-14",
+        "mode": "standard",
+        "weapons": "randomized",
+        "world_id": 331,
+        "crystals_ganon": "7",
+        "crystals_tower": "7",
+        "tournament": false,
+        "size": 2,
+        "hints": "on",
+        "spoilers": "off",
+        "allow_quickswap": true,
+        "enemizer.boss_shuffle": "none",
+        "enemizer.enemy_shuffle": "none",
+        "enemizer.enemy_damage": "default",
+        "enemizer.enemy_health": "default",
+        "enemizer.pot_shuffle": "off"
+    },
+    "Bosses": {
+        "Eastern Palace": "Armos Knights",
+        "Desert Palace": "Lanmolas",
+        "Tower Of Hera": "Moldorm",
+        "Hyrule Castle": "Agahnim",
+        "Palace Of Darkness": "Helmasaur King",
+        "Swamp Palace": "Arrghus",
+        "Skull Woods": "Mothula",
+        "Thieves Town": "Blind",
+        "Ice Palace": "Kholdstare",
+        "Misery Mire": "Vitreous",
+        "Turtle Rock": "Trinexx",
+        "Ganons Tower Basement": "Armos Knights",
+        "Ganons Tower Middle": "Lanmolas",
+        "Ganons Tower Top": "Moldorm",
+        "Ganons Tower": "Agahnim 2",
+        "Ganon": "Ganon"
+    }
+}
