@@ -44,8 +44,9 @@ for (row = 1; row < 8; row++){
 
 
 // To Do
-// Populate the first row with 7 columns
-// Populate the container div with 7 rows
+// Populate the grid with the item sprites
+// The items directory contains item objects with keys thar refer to img url paths
+// use the items objects to populate the <tc></tc> columns with <img> elements
 
 
 
