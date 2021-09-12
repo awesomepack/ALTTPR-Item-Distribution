@@ -19,12 +19,33 @@ var i2bounds = [[0,2007], [2007,4014]]
 var image2 = L.imageOverlay('resources/images/lttp_darkworld.png', i2bounds)
 image2.addTo(map)
 
+customMarker = L.CircleMarker.extend({
+    options: {
+      data: {
+        location_name: '',
+        coords: ''
+      }
+    }
+  })
+
 d3.json('http://localhost:5000/viz1').then(function(data) {
     for (var i = 0; i < data.length; i++) {
-      marker = new L.circleMarker(data[i][1])
-        .bindPopup(data[i][0])
-        .setStyle({radius: '6'})
+      var location_name = data[i][0]
+      var coords = data[i][1]
+      marker = new customMarker(coords, {
+        radius: 6,
+        color: 'red',
+        data: {
+          location_name: location_name,
+          coords: coords
+        }
+      })
+        .bindPopup(location_name)
+        .on('click', function(e) {
+          console.log(e.target.options.data)
+        })
         .addTo(map)
+        
     }
   }
 );
