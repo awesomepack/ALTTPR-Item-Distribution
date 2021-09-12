@@ -13,8 +13,6 @@ from flask import Flask , redirect , url_for , request , render_template
 from flask import jsonify
 import tables
 
-db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
-engine = create_engine(db_string , echo = True)
 
 app = Flask(__name__)
 
@@ -25,6 +23,7 @@ def add_header(response):
 
 @app.route('/ALTTPR')
 def home():
+
     return 'This is the home page'
 
     # Function to render potential home page with information on API routes
@@ -36,13 +35,18 @@ def home():
 def query_viz1():
 
     # Creating connection to alttpr database
+    db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
+    engine = create_engine(db_string , echo = True)
+
+    # passing reference to the location-metadata table
+    locations_table = tables.Locations.__table__
 
     # Begin Session
     session = Session(engine)
 
     # Select all entries from the database
     # text_statement = text("SELECT * FROM public.\"location-metadata\" ORDER BY location ASC ")
-    stmt = select([tables.LocationMetadata.location, tables.LocationMetadata.x, tables.LocationMetadata.y, tables.LocationMetadata.map, tables.LocationMetadata.count])
+    stmt = select([tables.Locations.locations, tables.Location.x, tables.Location.y, tables.Location.map, tables.Location.count])
     results = session.execute(stmt)
     
 
@@ -69,25 +73,43 @@ def query_viz1():
 
 
 
-@app.route('/viz2/<location>')
-def query_viz2(location):
-    # Queries data to create a bar graph of item distribution in a selected area
+@app.route('/viz2/<location_name>')
+def query_viz2(location_name):
 
-    # maps query result object to js dataObj
-    dataObject = {
-        'location': '' , 
-        'items': [] , 
-        'occurrence': []
-    }
+    #Locations table
 
-    # Returns a dataObject on the endpoint
+    # Creating connection to alttpr database
+    db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
+    engine = create_engine(db_string , echo = True)
+
+    # Begin Session
+    session = Session(engine)
+
+    # Select all entries from the database
+    #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
+    stmt = select(func.count(tables.Seeds.item) , tables.Seeds.item).group_by(tables.Seeds.item).filter(tables.Seeds.location == location_name)
+    results = session.execute(stmt)
+
+    #var test_data = ["Location_name", ['list of items'], ['list of values']];
+    # initializing locationItems
+    locationItems = []
+
+    # Populating locationItems
+    for row in results:
+        locationItems.append(row[0])# appending count -- ideally a pct
+        locationItems.append(row[1])# appending item name
+
+    
+    # Returning json data
+    return jsonify(locationItems)
+
+
+
 
 
 @app.route('/viz3')
 def query_viz3():
-
-    # Function to query main data for viz 3
-    return 'This is endpoint for viz 3 data'
+    
 
 
 
