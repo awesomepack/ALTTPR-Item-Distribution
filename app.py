@@ -70,7 +70,7 @@ def query_viz1():
 def query_viz2(location_name):
 
     # Begin Session
-    session = Session(engine)
+    session = Session()
 
     # Select all entries from the database
     #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
@@ -91,9 +91,30 @@ def query_viz2(location_name):
     return jsonify(locationItems)
 
 
-@app.route('/viz3')
-def query_viz3():
-    pass
+@app.route('/viz3/<item_name>')
+def query_viz3(item_name):
+
+    # Begin Session
+    session = Session()
+
+    # Select all entries from the database
+    #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
+    stmt = select(func.count(tables.Seeds.location) , tables.Seeds.location).group_by(tables.Seeds.location).filter(tables.Seeds.item == item_name)
+    results = session.execute(stmt)
+
+    #var test_data = ["Location_name", ['list of items'], ['list of values']];
+    # initializing locationItems
+    itemLocations = []
+
+    # Populating locationItems
+    for row in results:
+        itemLocations.append(row[0])# appending count -- ideally a pct
+        itemLocations.append(row[1])# appending item name
+
+    
+    # Returning json data
+    return jsonify(itemLocations)
+    
 
 if __name__ == '__main__':
     app.run( debug = True)
