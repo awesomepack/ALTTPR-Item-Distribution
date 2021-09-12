@@ -41,8 +41,8 @@ def query_viz1():
 
     # Select all entries from the database
     # text_statement = text("SELECT * FROM public.\"location-metadata\" ORDER BY location ASC ")
-    stmt = select([tables.Locations.locations, tables.Location.x, tables.Location.y, tables.Location.map, tables.Location.count])
-    results = session.execute(stmt)
+    statement = select([tables.LocationMetadata.location, tables.LocationMetadata.x, tables.LocationMetadata.y, tables.LocationMetadata.map, tables.LocationMetadata.count])
+    results = session.execute(statement)
     
 
     # initializing the map locations dictionary that will be served
@@ -64,8 +64,6 @@ def query_viz1():
         count = row[4]
         mapLocations.append([location, coords, count])
     return jsonify(mapLocations)
-
-
 
 
 @app.route('/viz2/<location_name>')
