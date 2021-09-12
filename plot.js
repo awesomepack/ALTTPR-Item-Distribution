@@ -29,3 +29,22 @@ function charts(data){
 };
 
 charts(test_data);
+
+// Modifying index.html //
+
+// rendering the first row of the grid
+d3.select("#grid").html("<div class = 'row' id = 'row1'> Hello There Kenobi </div>")
+
+// appending the row with 7 columns
+for (let col = 1; col < 8 ; col++){
+  
+  d3.select('#row1').html("<div class = 'col-1'> Column 1 </div>")
+
+}
+
+// To Do
+// Populate the first row with 7 columns
+// Populate the container div with 7 rows
+
+
+
