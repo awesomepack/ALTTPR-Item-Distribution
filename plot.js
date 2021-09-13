@@ -27,25 +27,31 @@ function locationChart(data){
   Plotly.newPlot("bar", bar, barshape);
 };
 
-// Populate #rows with 7 columns
+
+// reading in items.json
+d3.json('resources/items/items.json').then(function(data){
+  console.log(data)
+
+var item_name = data[0].name
+
+// creating the item selector grid (7x7)
 for (row = 1; row < 8; row++){
-  
-  // appending a column 7 times
+
   for (col = 1; col < 8; col++) {
 
-    d3.select(`#row${row}`).append('td').attr('class' , 'class = col-1').text(`${col}`)
+    $(`#row${row}`).append(`<td class = col-1><button type = "button">${item_name}</button> </td>`)
 
   }
+
 }
+
+});
+// end data scope
 
 
 // To Do
-// Populate the grid with the item sprites
-// The items directory contains item objects with keys thar refer to img url paths
-// use the items objects to populate the <tc></tc> columns with <img> elements
+// populate each column cell with the item name from items.json
+// move the table object next to th map
 
-// reading in items object
-d3.json('resources/items/items.json').then(function(data){
-  console.log(data)
-})
+
 

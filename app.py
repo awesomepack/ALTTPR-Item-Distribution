@@ -66,7 +66,7 @@ def add_header(response):
 # Function to render potential home page with information on API routes
 @app.route('/ALTTPR')
 def home():
-    return 'This is the home page'
+    return 'This route will serve up images'
 
     
 @app.route('/viz1')
