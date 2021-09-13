@@ -40,10 +40,10 @@ for (row = 1; row < 9; row++){
 
   for (col = 1; col < 6; col++) {
 
-    var item_name = data[counter].name
+    var item_name = data[counter].name // current item
 
-    $(`#row${row}`).append(`<td class = col-1><button type = "button" onclick = "viz2func()" value = ${item_name} >${item_name}</button> </td>`)
-    counter += 1
+    $(`#row${row}`).append(`<td class = col-2><button type = "button" onclick = "viz2func()" value = ${item_name} >${item_name}</button> </td>`)
+    counter += 1 // incrementing after each column
 
   }
 
