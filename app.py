@@ -25,35 +25,37 @@ Session = sessionmaker(bind=engine)
 locationMetadata = []
 locationMetadataFile = 'resources/data/locationMetadata.json'
 
-def getLocationMetadata():
+regionToLocations_map= {}
 
+def init():
+    
+    session = Session()
+    # Select all entries from the database
+    # text_statement = text("SELECT * FROM public.\"location-metadata\" ORDER BY location ASC ")
+    statement = select([tables.LocationMetadata.location, tables.LocationMetadata.x, tables.LocationMetadata.y, tables.LocationMetadata.map, tables.LocationMetadata.count])
+    results = session.execute(statement)
+    
+    # populating mapLocations with results from query
+    for row in results:
+        location = row[0]
+        map = row[3]
+        if map == "lightworld":
+            x = row[1]
+            y = 2007 - row[2]
+            coords = [y, x]
+        else:
+            x = row[1] + 2007
+            y = 2007 - row[2]
+            coords = [y, x]
+            
+        count = row[4]
+        locationMetadata.append([location, coords, count])
+        
+    session.close()
+
+def getLocationMetadata():
     if (len(locationMetadata)==0):
-        session = Session()
-        # Select all entries from the database
-        # text_statement = text("SELECT * FROM public.\"location-metadata\" ORDER BY location ASC ")
-        statement = select([tables.LocationMetadata.location, tables.LocationMetadata.x, tables.LocationMetadata.y, tables.LocationMetadata.map, tables.LocationMetadata.count])
-        results = session.execute(statement)
-        
-        # populating mapLocations with results from query
-        for row in results:
-            location = row[0]
-            map = row[3]
-            if map == "lightworld":
-                x = row[1]
-                y = 2007 - row[2]
-                coords = [y, x]
-            else:
-                x = row[1] + 2007
-                y = 2007 - row[2]
-                coords = [y, x]
-                
-            count = row[4]
-            locationMetadata.append([location, coords, count])
-        
-        session.close()
-    # if not (os.path.exists(locationMetadataFile)):
-    #     with open(locationMetadataFile, 'w+') as file:
-    #         file.write(json.dumps(locationMetadata))
+        init()
     return locationMetadata
 
 @app.after_request
@@ -72,11 +74,13 @@ def query_viz1():
     return jsonify(getLocationMetadata())
 
 
-@app.route('/viz2/<location_name>')
-def query_viz2(location_name):
+@app.route('/regions/<region_name>')
+def query_viz2(region_name):
 
     # Begin Session
     session = Session()
+
+    location_list = regionToLocations_map[region_name]
 
     # Select all entries from the database
     #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
@@ -94,7 +98,7 @@ def query_viz2(location_name):
 
     session.close()
     # Returning json data
-    return jsonify([location_name, items, count])
+    return jsonify([region_name, items, count])
 
 
 @app.route('/viz3/<item_name>')
