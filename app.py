@@ -127,7 +127,27 @@ def query_viz3(item_name):
     
 @app.route('/viz4')
 def query_viz4():
-    return jsonify(["String1","String2","String3"])
+    # Begin Session
+    session = Session()
+
+    # Select all entries from the database
+    #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
+    statement = select([tables.Seeds.seed_guid])
+    results = session.execute(statement)
+
+    #var test_data = ["Location_name", ['list of items'], ['list of values']];
+    # initializing locationItems
+    guids = []
+
+    # Populating locationItems
+    for row in results:
+        guids.append(row[0])# appending count -- ideally a pct
+    
+
+    session.close()
+    # Returning json data
+    return jsonify(guids)
+
 
 if __name__ == '__main__':
     app.run( debug = True)

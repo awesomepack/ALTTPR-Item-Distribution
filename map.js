@@ -51,7 +51,7 @@ d3.json(url+'/viz1').then(function(data) {
 
       var dict = {"Links House": [641,1097], "Hyrule Castle": [1101,1003], "Sahasrahla's Hut": [1107,1625], "Kakariko Tavern": [862,320], "Kakariko Well": [1174,47]
       }
-      console.log(dict)
+      
 
       var pointlist = []
       for(let k in dict){
@@ -72,9 +72,21 @@ d3.json(url+'/viz1').then(function(data) {
 
 function updateGraph(location_name) {
   d3.json(url+'/viz2/'+location_name).then(function(data) {
-      console.log(data)
       locationChart(data)
     }
   )
 }
-
+var dropdown = d3.select("#selDataset")
+function init() {
+  d3.json(url +'/viz4').then(function(data) {
+    data.forEach((value, i) =>{
+      dropdown.append('option').attr('value',value).text(value)
+      console.log("this is I")
+      console.log(i)
+      console.log("This is value")
+      console.log(value)
+    }
+    )
+  })
+}
+init()
