@@ -48,10 +48,46 @@ d3.json(url+'/viz1').then(function(data) {
           updateGraph(e.target.options.data.location_name)
         })
         .addTo(map)
-        
+
+      var dict = {"Links House": [641,1097], "Hyrule Castle": [1101,1003], "Sahasrahla's Hut": [1107,1625], "Kakariko Tavern": [862,320], "Kakariko Well": [1174,47]
+      }
+      console.log(dict)
+
+      var pointlist = []
+      for(let k in dict){
+        var v = dict[k]; 
+        pointlist = pointlist.concat([v])
+      }
+      
+      var firstpolyline = L.polyline(pointlist, {
+        color: 'blue',
+        weight: 3,
+        opacity: 0.5,
+        smoothFactor: 1
+        })
+        firstpolyline.addTo(map)
+      
     }
-  }
-);
+function init() {
+      var selector = d3.select("#selDataset");
+      d3.json("samples.json").then((data) => {
+      console.log(data.features);      
+      var sampleNames = data.names;
+      sampleNames.forEach((sample) => {
+          selector
+            .append("option")
+            .text(sample)
+            .property("value", sample);
+      });
+      const firstSample = sampleNames[0];
+      Charts(firstSample);
+      Metadata(firstSample);});} 
+
+function optionChanged(newSample){
+Charts(newSample);
+Metadata(newSample);}
+init(); 
+
 
 function updateGraph(location_name) {
   d3.json(url+'/viz2/'+location_name).then(function(data) {
@@ -60,3 +96,4 @@ function updateGraph(location_name) {
     }
   )
 }
+})

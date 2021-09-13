@@ -51,9 +51,9 @@ def getLocationMetadata():
             locationMetadata.append([location, coords, count])
         
         session.close()
-    if not (os.path.exists(locationMetadataFile)):
-        with open(locationMetadataFile, 'w+') as file:
-            file.write(json.dumps(locationMetadata))
+    # if not (os.path.exists(locationMetadataFile)):
+    #     with open(locationMetadataFile, 'w+') as file:
+    #         file.write(json.dumps(locationMetadata))
     return locationMetadata
 
 @app.after_request
