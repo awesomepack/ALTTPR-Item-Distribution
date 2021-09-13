@@ -48,5 +48,8 @@ for (row = 1; row < 8; row++){
 // The items directory contains item objects with keys thar refer to img url paths
 // use the items objects to populate the <tc></tc> columns with <img> elements
 
-
+// reading in items object
+d3.json('resources/items/items.json').then(function(data){
+  console.log(data)
+})
 
