@@ -27,9 +27,6 @@ function locationChart(data){
   Plotly.newPlot("bar", bar, barshape);
 };
 
-charts(test_data);
-
-
 // Populate #rows with 7 columns
 for (row = 1; row < 8; row++){
   
