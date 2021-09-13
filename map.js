@@ -1,6 +1,7 @@
 const corner1 = L.latLng(0, 0)
 const corner2 = L.latLng(2007, 4014)
 const bounds = L.latLngBounds(corner1, corner2)
+
 var map = L.map('map', {
   minZoom: -2,
   maxZoom: 2,
@@ -28,7 +29,9 @@ customMarker = L.CircleMarker.extend({
     }
   })
 
-d3.json('http://localhost:5000/viz1').then(function(data) {
+const url = 'http://localhost:5000'
+
+d3.json(url+'/viz1').then(function(data) {
     for (var i = 0; i < data.length; i++) {
       var location_name = data[i][0]
       var coords = data[i][1]
@@ -42,10 +45,18 @@ d3.json('http://localhost:5000/viz1').then(function(data) {
       })
         .bindPopup(location_name)
         .on('click', function(e) {
-          console.log(e.target.options.data)
+          updateGraph(e.target.options.data.location_name)
         })
         .addTo(map)
         
     }
   }
 );
+
+function updateGraph(location_name) {
+  d3.json(url+'/viz2/'+location_name).then(function(data) {
+      console.log(data)
+      locationChart(data)
+    }
+  )
+}

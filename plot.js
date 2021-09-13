@@ -1,8 +1,7 @@
 
-var test_data = ["Ganon's Tower - Compass Room - Bottom Right", ['BossHeartContainer', 'Bottle', 'TenArrows', 'Flippers', 'TwentyRupees', 'other'], [12, 14, 7, 19, 3, 45]];
 
-function charts(data){
-  var name =  data[0];
+function locationChart(data){
+  var name = data[0]
   var items = data[1];
   var values = data[2];
 
@@ -27,9 +26,6 @@ function charts(data){
 
   Plotly.newPlot("bar", bar, barshape);
 };
-
-charts(test_data);
-
 
 // Populate #rows with 7 columns
 for (row = 1; row < 8; row++){
