@@ -35,14 +35,14 @@ d3.json('resources/items/items.json').then(function(data){
 var counter = 0
 
 
-// creating the item selector grid (7x7)
-for (row = 1; row < 8; row++){
+// creating the item selector grid (8x5)
+for (row = 1; row < 9; row++){
 
-  for (col = 1; col < 8; col++) {
+  for (col = 1; col < 6; col++) {
 
     var item_name = data[counter].name
 
-    $(`#row${row}`).append(`<td class = col-1><button type = "button" >${item_name}</button> </td>`)
+    $(`#row${row}`).append(`<td class = col-1><button type = "button" onclick = "viz2func()" value = ${item_name} >${item_name}</button> </td>`)
     counter += 1
 
   }

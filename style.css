@@ -8,3 +8,21 @@ body {
   html {
     height: 100%;
   }
+
+/* styling for the item selector */
+table{
+  table-layout: fixed;
+  size: 100%;
+
+}
+
+td{
+  width: 100%
+}
+
+button{
+  width: 100%;
+  height: 100%;
+
+}
+
