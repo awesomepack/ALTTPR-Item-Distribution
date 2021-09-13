@@ -32,14 +32,18 @@ function locationChart(data){
 d3.json('resources/items/items.json').then(function(data){
   console.log(data)
 
-var item_name = data[0].name
+var counter = 0
+
 
 // creating the item selector grid (7x7)
 for (row = 1; row < 8; row++){
 
   for (col = 1; col < 8; col++) {
 
-    $(`#row${row}`).append(`<td class = col-1><button type = "button">${item_name}</button> </td>`)
+    var item_name = data[counter].name
+
+    $(`#row${row}`).append(`<td class = col-1><button type = "button" >${item_name}</button> </td>`)
+    counter += 1
 
   }
 
