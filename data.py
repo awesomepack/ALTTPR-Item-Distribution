@@ -21,7 +21,7 @@ Session = sessionmaker(bind=db)
 locations_table = tables.Locations.__table__
 items_table = tables.Items.__table__
 shops_table = tables.Shops.__table__
-# special_table = tables.Special.__table__
+special_table = tables.Special.__table__
 seeds_table = tables.Seeds.__table__
 
 ##########
@@ -35,12 +35,13 @@ def makeTables(dropfirst = True):
         items_table.drop(db, checkfirst=True)
         shops_table.drop(db, checkfirst=True)
         seeds_table.drop(db, checkfirst=True)
-        # special_table.drop(db, checkfirst=True)
+        special_table.drop(db, checkfirst=True)
 
     locations_table.create(db)
     items_table.create(db)
     shops_table.create(db)
     seeds_table.create(db)
+    special_table.create(db)
 
     ## Special used Dictionaries, but the fix using HSTORE isn't working 
     ## TODO: implement as an Enhancement for future development.
@@ -52,7 +53,7 @@ def makeTables(dropfirst = True):
 ##########
 
 
-def loadSample(maketables = True, dropfirst = True):
+def loadSample(maketables = True, dropfirst = False):
     return loadAllData(seedparser.sample_folderpath, maketables=maketables, dropfirst=dropfirst)
 
 def loadSeed(filepath : str, session : Session):
@@ -62,7 +63,7 @@ def loadSeed(filepath : str, session : Session):
     session.add(tables.Items(seed_guid = seed.seed_guid, items = seed.items))
     for location, item in seed.locations.items():
         session.add(tables.Seeds(seed_guid = seed.seed_guid, item = item, location = location))
-    # session.add(tables.Special(seed_guid = seed.seed_guid, special = seed.special))
+    session.add(tables.Special(seed_guid = seed.seed_guid, special = seed.special))
     for shop in seed.shops:
         shop_dict = {}
         shop_dict['name'] = shop['location']
@@ -78,7 +79,7 @@ def loadSeed(filepath : str, session : Session):
         session.add(tables.Shops(seed_guid = seed.seed_guid, shops = shop_dict))
     pass
 
-def loadAllData(folderpath : str, limit = -1, batchsize = 1000, maketables = True, dropfirst = True):
+def loadAllData(folderpath : str, limit = -1, batchsize = 1000, maketables = True, dropfirst = False):
     session = Session()
     if maketables:
         makeTables(dropfirst=dropfirst)

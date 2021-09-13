@@ -56,11 +56,9 @@ def query_viz2(region_name):
     statement = select(func.count(tables.Seeds.item) , tables.Seeds.item).group_by(tables.Seeds.item).filter(tables.Seeds.location == region_name)
     results = session.execute(statement)
 
-    #var test_data = ["Location_name", ['list of items'], ['list of values']];
-    # initializing locationItems
     items = []
     count = []
-    # Populating locationItems
+    # Populating
     for row in results:
         count.append(row[0])# appending count -- ideally a pct
         items.append(row[1])# appending item name
