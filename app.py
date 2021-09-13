@@ -1,11 +1,12 @@
 
 # importing dependencies
+import json
 import sqlalchemy
 from sqlalchemy import select, text
 from sqlalchemy.exc import DatabaseError
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import func
+from sqlalchemy import func, bindparam
 from sqlalchemy import create_engine
 from sqlalchemy.orm.session import sessionmaker
 from sqlalchemy.sql.schema import MetaData
@@ -13,7 +14,7 @@ from login import postgres_password , postgres_username
 from flask import Flask , redirect , url_for , request , render_template
 from flask import jsonify
 import tables
-
+import os
 
 app = Flask(__name__)
 
@@ -22,8 +23,10 @@ db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alt
 engine = create_engine(db_string , echo = True)
 Session = sessionmaker(bind=engine)
 locationMetadata = []
+locationMetadataFile = 'resources/data/locationMetadata.json'
 
 def getLocationMetadata():
+
     if (len(locationMetadata)==0):
         session = Session()
         # Select all entries from the database
@@ -48,6 +51,9 @@ def getLocationMetadata():
             locationMetadata.append([location, coords, count])
         
         session.close()
+    if not (os.path.exists(locationMetadataFile)):
+        with open(locationMetadataFile, 'w+') as file:
+            file.write(json.dumps(locationMetadata))
     return locationMetadata
 
 @app.after_request
@@ -74,8 +80,8 @@ def query_viz2(location_name):
 
     # Select all entries from the database
     #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
-    stmt = select(func.count(tables.Seeds.item) , tables.Seeds.item).group_by(tables.Seeds.item).filter(tables.Seeds.location == location_name)
-    results = session.execute(stmt)
+    statement = select(func.count(tables.Seeds.item) , tables.Seeds.item).group_by(tables.Seeds.item).filter(tables.Seeds.location == location_name)
+    results = session.execute(statement)
 
     #var test_data = ["Location_name", ['list of items'], ['list of values']];
     # initializing locationItems
@@ -99,8 +105,8 @@ def query_viz3(item_name):
 
     # Select all entries from the database
     #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
-    stmt = select(func.count(tables.Seeds.location) , tables.Seeds.location).group_by(tables.Seeds.location).filter(tables.Seeds.item == item_name)
-    results = session.execute(stmt)
+    statement = select(func.count(tables.Seeds.location) , tables.Seeds.location).group_by(tables.Seeds.location).filter(tables.Seeds.item == item_name)
+    results = session.execute(statement)
 
     #var test_data = ["Location_name", ['list of items'], ['list of values']];
     # initializing locationItems
