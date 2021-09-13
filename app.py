@@ -125,6 +125,9 @@ def query_viz3(item_name):
     # Returning json data
     return jsonify(itemLocations)
     
+@app.route('/viz4')
+def query_viz4():
+    return ["String1","String2","String3"]
 
 if __name__ == '__main__':
     app.run( debug = True)
