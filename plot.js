@@ -1,5 +1,5 @@
 
-
+// Chart for item distribution by location
 function locationChart(data){
   var name = data[0]
   var items = data[1];
@@ -28,6 +28,9 @@ function locationChart(data){
 };
 
 
+
+// Selector Grid
+
 // reading in items.json
 d3.json('resources/items/items.json').then(function(data){
   console.log(data)
@@ -42,7 +45,7 @@ for (row = 1; row < 9; row++){
 
     var item_name = data[counter].name // current item
 
-    $(`#row${row}`).append(`<td class = col-2><button type = "button" onclick = "viz2func()" value = ${item_name} >${item_name}</button> </td>`)
+    $(`#row${row}`).append(`<td class = col-2><button type = "button" value = ${item_name} onclick = "viz2func(this.value)" >${item_name}</button> </td>`)
     counter += 1 // incrementing after each column
 
   }
@@ -51,11 +54,19 @@ for (row = 1; row < 9; row++){
 
 });
 // end data scope
+// end item selector
+
+// OnClick function Viz2
+function viz2func(value){
+
+  console.log(value)
+  // Calls the create viz2 bar chart function
+
+}
 
 
 // To Do
-// populate each column cell with the item name from items.json
-// move the table object next to th map
+// creat an on click function that will return the valu attribute of the button that triggerred it
 
 
 
