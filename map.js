@@ -68,25 +68,6 @@ d3.json(url+'/viz1').then(function(data) {
         firstpolyline.addTo(map)
       
     }
-function init() {
-      var selector = d3.select("#selDataset");
-      d3.json("samples.json").then((data) => {
-      console.log(data.features);      
-      var sampleNames = data.names;
-      sampleNames.forEach((sample) => {
-          selector
-            .append("option")
-            .text(sample)
-            .property("value", sample);
-      });
-      const firstSample = sampleNames[0];
-      Charts(firstSample);
-      Metadata(firstSample);});} 
-
-function optionChanged(newSample){
-Charts(newSample);
-Metadata(newSample);}
-init(); 
 
 
 function updateGraph(location_name) {
