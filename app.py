@@ -13,10 +13,13 @@ from sqlalchemy.sql.schema import MetaData
 from login import postgres_password , postgres_username
 from flask import Flask , redirect , url_for , request , render_template
 from flask import jsonify
+from flask_cors import CORS, cross_origin
 import tables
 import os
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Creating connection to alttpr database
 db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
@@ -30,6 +33,7 @@ with open(regionsFile) as file:
 @app.after_request
 def add_header(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Content-type'] = 'appplication/json'
     return response
 
 # Function to render potential home page with information on API routes
@@ -43,17 +47,18 @@ def query_viz1():
     return jsonify(regionInfo)
 
 
-@app.route('/regions/<region_name>')
-def query_viz2(region_name):
+@app.route('/regions', methods=["GET","POST"])
+@cross_origin()
+def queryByLocations():
 
+    data = request.json
+    
     # Begin Session
     session = Session()
 
-    # location_list = regionToLocations_map[region_name]
-
     # Select all entries from the database
     #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
-    statement = select(func.count(tables.Seeds.item) , tables.Seeds.item).group_by(tables.Seeds.item).filter(tables.Seeds.location == region_name)
+    statement = select(func.count(tables.Seeds.seed_guid) , tables.Seeds.item).group_by(tables.Seeds.item).filter(tables.Seeds.location.in_(data))
     results = session.execute(statement)
 
     items = []
@@ -65,7 +70,8 @@ def query_viz2(region_name):
 
     session.close()
     # Returning json data
-    return jsonify([region_name, items, count])
+    return jsonify([data, items, count])
+    
 
 
 @app.route('/viz3/<item_name>')

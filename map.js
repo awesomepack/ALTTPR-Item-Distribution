@@ -28,11 +28,11 @@ customMarker = L.CircleMarker.extend({
 
 const url = 'http://localhost:5000'
 
-d3.json(url+'/viz1').then(function(data) {
-  console.log(data)
-  makePins(data)
-  drawPlaythrough()
-})
+function init() {
+  d3.json(url+'/viz1').then(function(data) {
+    makePins(data)
+  })
+}
 
 function drawPlaythrough() { 
     // var dict = {"Links House": [641,1097], "Hyrule Castle": [1101,1003], "Sahasrahla's Hut": [1107,1625], "Kakariko Tavern": [862,320], "Kakariko Well": [1174,47]
@@ -71,11 +71,23 @@ function getCoords(map_locations) {
 }
 
 function updateGraph(locations) {
-  d3.json(url+'/regions/'+locations[0]).then(locationChart)
+  $.ajax({
+    url: url+'/regions',
+    type: 'POST',
+    contentType: 'application/json',
+    dataType: 'json',
+    crossDomain: true,
+    data: JSON.stringify(locations),
+    headers: {
+      accept: "application/json",
+      "Access-Control-Allow-Origin":url
+    }
+  }).done(locationChart).fail(function(jqXHR, textStatus, errorThrown) {
+    console.log("fail: ",textStatus, errorThrown);
+  })
 }
 
 function makePin(region) {
-  console.log(region)
   if (region.map_locations) {
     new customMarker(getCoords(region.map_locations), {
       radius: 6,
@@ -87,3 +99,4 @@ function makePin(region) {
   }
 }
 
+init()
