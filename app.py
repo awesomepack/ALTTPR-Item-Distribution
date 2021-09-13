@@ -22,41 +22,10 @@ app = Flask(__name__)
 db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alttpr'
 engine = create_engine(db_string , echo = True)
 Session = sessionmaker(bind=engine)
-locationMetadata = []
-locationMetadataFile = 'resources/data/locationMetadata.json'
+regionsFile = 'resources/regions/regions.json'
 
-regionToLocations_map= {}
-
-def init():
-    
-    session = Session()
-    # Select all entries from the database
-    # text_statement = text("SELECT * FROM public.\"location-metadata\" ORDER BY location ASC ")
-    statement = select([tables.LocationMetadata.location, tables.LocationMetadata.x, tables.LocationMetadata.y, tables.LocationMetadata.map, tables.LocationMetadata.count])
-    results = session.execute(statement)
-    
-    # populating mapLocations with results from query
-    for row in results:
-        location = row[0]
-        map = row[3]
-        if map == "lightworld":
-            x = row[1]
-            y = 2007 - row[2]
-            coords = [y, x]
-        else:
-            x = row[1] + 2007
-            y = 2007 - row[2]
-            coords = [y, x]
-            
-        count = row[4]
-        locationMetadata.append([location, coords, count])
-        
-    session.close()
-
-def getLocationMetadata():
-    if (len(locationMetadata)==0):
-        init()
-    return locationMetadata
+with open(regionsFile) as file:
+    regionInfo = json.load(file)
 
 @app.after_request
 def add_header(response):
@@ -68,10 +37,10 @@ def add_header(response):
 def home():
     return 'This route will serve up images'
 
-    
+
 @app.route('/viz1')
 def query_viz1():
-    return jsonify(getLocationMetadata())
+    return jsonify(regionInfo)
 
 
 @app.route('/regions/<region_name>')
@@ -80,11 +49,11 @@ def query_viz2(region_name):
     # Begin Session
     session = Session()
 
-    location_list = regionToLocations_map[region_name]
+    # location_list = regionToLocations_map[region_name]
 
     # Select all entries from the database
     #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
-    statement = select(func.count(tables.Seeds.item) , tables.Seeds.item).group_by(tables.Seeds.item).filter(tables.Seeds.location == location_name)
+    statement = select(func.count(tables.Seeds.item) , tables.Seeds.item).group_by(tables.Seeds.item).filter(tables.Seeds.location == region_name)
     results = session.execute(statement)
 
     #var test_data = ["Location_name", ['list of items'], ['list of values']];

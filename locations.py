@@ -21,6 +21,15 @@ with open(locations_filepath, 'r') as lfile:
 
 dlocations_filepath = 'resources/locations/dungeons.json'
 
+def repregion(content):
+    pattern = "(^[ \t]*)(\"[\w+\' ]+\"): {"
+    def repl(m):
+        tabs = m.group(1)
+        front = tabs+'{'
+        region = m.group(2)
+        return f'{front}\n{tabs}\t\"region\": {region},'
+    return re.sub(pattern, repl, content, flags =re.MULTILINE)
+
 with open(dlocations_filepath, 'r') as dfile:
     dcontent = dfile.read()
     dungeon_locations : dict = json.loads(cleanJson(content))
@@ -29,15 +38,15 @@ def makeLocationMetadata():
     ###################
     # Start of Session
     ###################
-    session = Session()
+    # session = Session()
 
     ##########
     # Location Data
     ##########
-    table = LocationMetadata.__table__
+    # table = LocationMetadata.__table__
 
-    table.drop(db)
-    table.create(db)
+    # table.drop(db)
+    # table.create(db)
 
     def add_loc_from_region(region : dict):
         region_name = region['name']
@@ -76,13 +85,13 @@ def makeLocationMetadata():
     for region in dungeon_locations:
         add_loc_from_region(region)
 
-    session.commit()
+    # session.commit()
     ##########
     # Commit/End Location Data
     ##########
 
 
-    session.close()
+    # session.close()
     ###################
     # Session Closed
     ###################
