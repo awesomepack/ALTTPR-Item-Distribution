@@ -1,3 +1,4 @@
+
 const corner1 = L.latLng(0, 0)
 const corner2 = L.latLng(2007, 4014)
 const bounds = L.latLngBounds(corner1, corner2)
@@ -70,14 +71,47 @@ d3.json(url+'/viz1').then(function(data) {
     } 
 })
 
+// function charts(sample) {
+//   d3.json(url +'/viz4').then(function(data) {
+//   data.forEach((value, i) =>{
+//   var cor = i 
+//   var v = value
+//   var bar =[
+//   {
+//     y: cor,
+//     x: v,
+//     text: labels,
+//     type: "bar",
+//   // orientation: "horizontal"
+//     orientation: 'h',
+//     marker: {
+//         color: 'rgb(158,202,225)',
+//         opacity: 1.5,
+//         line: {
+//           color: 'rgb(8,48,107)',
+//           width: 2
+//         },
+//     },
+  
+//   }];
+  
+
+//   var barshape = {
+//     title: "Viz4",
+//     margin: { top: 80, left: 200 },
+//   };
+
+//   Plotly.newPlot("bar", bar, barshape);
+
 function updateGraph(location_name) {
   d3.json(url+'/viz2/'+location_name).then(function(data) {
       locationChart(data)
     }
   )
 }
-var dropdown = d3.select("#selDataset")
+
 function init() {
+  var dropdown = d3.select("#selDataset")
   d3.json(url +'/viz4').then(function(data) {
     data.forEach((value, i) =>{
       dropdown.append('option').attr('value',value).text(value)
@@ -88,5 +122,13 @@ function init() {
     }
     )
   })
+//   const firstSample = value[0];
+//     charts(firstSample);
+// }
+
+// function optionChanged(newSample){
+//   charts(newSample);
+// }
+
+init(); 
 }
-init()
