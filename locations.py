@@ -12,17 +12,18 @@ Session = sessionmaker(bind=db)
 
 locations_filepath = 'resources/locations/overworld.json'
 
+def cleanJson(json):
+    return re.sub('\/\/.*\n','',str(json))
+
 with open(locations_filepath, 'r') as lfile:
     content = lfile.read()
-    cleaned_json = re.sub('\/\/.*\n','',str(content))
-    overworld_locations : dict = json.loads(cleaned_json)
+    overworld_locations : dict = json.loads(cleanJson(content))
 
 dlocations_filepath = 'resources/locations/dungeons.json'
 
 with open(dlocations_filepath, 'r') as dfile:
     dcontent = dfile.read()
-    dcleaned_json = re.sub('\/\/.*\n','',str(dcontent))
-    dungeon_locations : dict = json.loads(dcleaned_json)
+    dungeon_locations : dict = json.loads(cleanJson(content))
 
 ###################
 # Start of Session
@@ -58,13 +59,14 @@ def add_loc_from_region(region : dict):
                 count+= section['item_count']
             if 'access_rules' in section.keys(): 
                 rules.extend(section['access_rules'])
-        session.add(LocationMetadata(location = location,
-                                        x=point['x'], 
-                                        y=point['y'], 
-                                        map = point['map'],
-                                        requirements = rules,
-                                        region = region_name,
-                                        count = count) )
+            data = { 'location': location,
+                'x':point['x'], 
+                'y':point['y'], 
+                'map' : point['map'],
+                'requirements' : rules,
+                'region' : region_name,
+                'count' : count
+            }
     else:
         print(f"Bad Location? {region['name']}")
 
