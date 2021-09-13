@@ -27,7 +27,7 @@ customMarker = L.CircleMarker.extend({
         coords: ''
       }
     }
-  })
+})
 
 const url = 'http://localhost:5000'
 
@@ -64,11 +64,11 @@ d3.json(url+'/viz1').then(function(data) {
         weight: 3,
         opacity: 0.5,
         smoothFactor: 1
-        })
-        firstpolyline.addTo(map)
+      })
+      firstpolyline.addTo(map)
       
-    }
-
+    } 
+})
 
 function updateGraph(location_name) {
   d3.json(url+'/viz2/'+location_name).then(function(data) {
@@ -77,4 +77,4 @@ function updateGraph(location_name) {
     }
   )
 }
-})
+
