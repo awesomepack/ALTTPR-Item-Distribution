@@ -87,6 +87,24 @@ function updateGraph(locations) {
   })
 }
 
+// function to update item graph
+function updateItemGraph(item) {
+  $.ajax({
+    url: url+'/items',
+    type: 'POST',
+    contentType: 'application/json',
+    dataType: 'json',
+    crossDomain: true,
+    data: JSON.stringify(item),
+    headers: {
+      accept: "application/json",
+      "Access-Control-Allow-Origin":url
+    }
+  }).done(ItemChart).fail(function(jqXHR, textStatus, errorThrown) {
+    console.log("fail: ",textStatus, errorThrown);
+  })
+}
+
 function makePin(region) {
   if (region.map_locations) {
     new customMarker(getCoords(region.map_locations), {

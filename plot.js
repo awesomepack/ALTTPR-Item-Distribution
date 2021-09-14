@@ -1,5 +1,5 @@
 
-// Chart for item distribution by location
+// Chart for item distribution per location
 function locationChart(data){
   var name = data[0]
   var items = data[1];
@@ -60,9 +60,37 @@ for (row = 1; row < 9; row++){
 function viz2func(value){
 
   console.log(value)
-  // Calls the create viz2 bar chart function
+  ItemChart(value)
 
 }
+
+// Chart for location distribution per item
+function ItemChart(data){
+  var name = data
+  var locations = data[1];
+  var values = data[2];
+
+  var bar =[{
+    x: locations,
+    y: values,
+    type: "bar",
+    marker:{
+      color: 'rgb(158,202,225)',
+      opacity: 1.5,
+      line: {
+        color: 'rgb(8,48,107)',
+        width: 2
+      }
+    }
+  }];
+
+  var barshape = {
+        title: name,
+        margin: { top: 80, left: 200 },
+        };
+
+  Plotly.newPlot("bar", bar, barshape);
+};
 
 
 // To Do

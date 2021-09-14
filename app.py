@@ -74,29 +74,31 @@ def queryByLocations():
     
 
 
-@app.route('/viz3/<item_name>')
-def query_viz3(item_name):
+@app.route('/items')
+def query_viz3():
 
+    data = request.json()
     # Begin Session
     session = Session()
 
     # Select all entries from the database
     #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
-    statement = select(func.count(tables.Seeds.location) , tables.Seeds.location).group_by(tables.Seeds.location).filter(tables.Seeds.item == item_name)
+    statement = select(func.count(tables.Seeds.location) , tables.Seeds.location).group_by(tables.Seeds.location).filter(tables.Seeds.item.in_(data))
     results = session.execute(statement)
 
     #var test_data = ["Location_name", ['list of items'], ['list of values']];
     # initializing locationItems
+    locationCount = []
     itemLocations = []
 
     # Populating locationItems
     for row in results:
-        itemLocations.append(row[0])# appending count -- ideally a pct
+        locationCount.append(row[0])# appending count -- ideally a pct
         itemLocations.append(row[1])# appending item name
 
     session.close()
     # Returning json data
-    return jsonify(itemLocations)
+    return jsonify([data , itemLocations , locationCount])
     
 @app.route('/viz4')
 def query_viz4():
