@@ -66,7 +66,7 @@ function viz2func(value){
 
 // Chart for location distribution per item
 function ItemChart(data){
-  var name = data
+  var name = data[0]
   var locations = data[1];
   var values = data[2];
 
