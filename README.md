@@ -1,5 +1,8 @@
 # ALTTPR-Item-Distribution
 
+
+Members: Jason, Merari, Dinh
+
 Analysis of the distribution of items in the legend of Zelda a link to the past
 
 ## Loading Sample Data
