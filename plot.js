@@ -43,7 +43,8 @@ for (row = 1; row < 9; row++){
 
   for (col = 1; col < 6; col++) {
 
-    var item_name = data[counter].name // current item
+    var str_name = data[counter].name // current item
+    var item_name = str_name.replace(/\s/g, '')
 
     $(`#row${row}`).append(`<td class = col-2><button type = "button" value = ${item_name} onclick = viz2func(this.value) >${item_name}</button> </td>`)
     counter += 1 // incrementing after each column
