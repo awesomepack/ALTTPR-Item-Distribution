@@ -27,30 +27,38 @@ db_string = f'postgresql://{postgres_username}:{postgres_password}@localhost/alt
 engine = create_engine(db_string , echo = True)
 Session = sessionmaker(bind=engine)
 regionsFile = 'resources/regions/regions.json'
+itemsFile = 'resoureces/items/items.json'
 
 with open(regionsFile) as file:
     regionInfo = json.load(file)
+with open(itemsFile) as file:
+    itemInfo = json.load(file)
+
 
 @app.after_request
 def add_header(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
-# Function to render potential home page with information on API routes
 @app.route('/ALTTPR')
+@app.route('/')
 def home():
-    response = render_template('../index.html')
+    response = render_template('index.html')
     return response
 
 @app.route('/viz1')
 def query_viz1():
     return jsonify(regionInfo)
 
+@app.route('/resources/items')
+def query_viz1():
+    return jsonify(itemInfo)
+
 @app.route('/playthrough/<seed_guid>')
 def queryPlaythrough(seed_guid):
     session = Session()
 
-    statement = select(tables.Special.playthrough).filter(tables.Special.seed_guid == seed_guid)
+    statement = select(tables.Playthrough.playthrough).filter(tables.Playthrough.seed_guid == seed_guid)
     results = session.execute(statement).first()
     data = []
     for row in results:   
@@ -69,8 +77,7 @@ def queryByLocations():
     session = Session()
 
     # Select all entries from the database
-    #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
-    statement = select(func.count(tables.Seeds.seed_guid) , tables.Seeds.item).group_by(tables.Seeds.item).filter(tables.Seeds.location.in_(data))
+    statement = select(func.count(tables.Seeds.item) , tables.Seeds.item).group_by(tables.Seeds.item).filter(tables.Seeds.location.in_(data))
     results = session.execute(statement)
 
     items = []
@@ -94,19 +101,17 @@ def query_viz3(item_name):
     session = Session()
 
     # Select all entries from the database
-    #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
     statement = select(func.count(tables.Seeds.location) , tables.Seeds.location).group_by(tables.Seeds.location).filter(tables.Seeds.item == item_name)
     results = session.execute(statement)
 
-    #var test_data = ["Location_name", ['list of items'], ['list of values']];
-    # initializing locationItems
+    # initialize returns
     locationCount = []
     itemLocations = []
 
     # Populating locationItems
     for row in results:
         locationCount.append(row[0])# appending count -- ideally a pct
-        itemLocations.append(row[1])# appending item name
+        itemLocations.append(row[1])# appending location name
 
     session.close()
     # Returning json data

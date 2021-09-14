@@ -1,15 +1,15 @@
 
 // Chart for item distribution per location
-function locationChart(data){
+function locationChart(data) {
   var name = data[0]
   var items = data[1];
   var values = data[2];
 
-  var bar =[{
+  var bar = [{
     x: items,
     y: values,
     type: "bar",
-    marker:{
+    marker: {
       color: 'rgb(158,202,225)',
       opacity: 1.5,
       line: {
@@ -20,62 +20,52 @@ function locationChart(data){
   }];
 
   var barshape = {
-        title: name,
-        margin: { top: 80, left: 200 },
-        };
+    title: name,
+    margin: { top: 80, left: 200 },
+  };
 
   Plotly.newPlot("bar", bar, barshape);
 };
 
 
-
 // Selector Grid
+d3.json(url + '/resources/items').then(function (data) {
+  var counter = 0
+  // creating the item selector grid (8x5)
+  for (row = 1; row < 9; row++) {
 
-// reading in items.json
-d3.json('resources/items/items.json').then(function(data){
-  console.log(data)
+    for (col = 1; col < 6; col++) {
 
-var counter = 0
+      var str_name = data[counter].name // current item
+      var item_name = str_name.substring(6, str_name.length - 4)
 
+      $(`#row${row}`).append(`<td class = col-2><button type = "button" value = ${item_name} onclick = viz2func(this.value) >${item_name}</button> </td>`)
+      counter += 1 // incrementing after each column
 
-// creating the item selector grid (8x5)
-for (row = 1; row < 9; row++){
-
-  for (col = 1; col < 6; col++) {
-
-    var str_name = data[counter].name // current item
-    var item_name = str_name.replace(/\s/g, '')
-
-    $(`#row${row}`).append(`<td class = col-2><button type = "button" value = ${item_name} onclick = viz2func(this.value) >${item_name}</button> </td>`)
-    counter += 1 // incrementing after each column
-
+    }
   }
-
-}
-
 });
+
 // end data scope
 // end item selector
 
 // OnClick function Viz2
-function viz2func(value){
-
+function viz2func(value) {
   console.log(value)
   updateItemGraph(value)
-
 }
 
 // Chart for location distribution per item
-function ItemChart(data){
+function ItemChart(data) {
   var name = data[0]
   var locations = data[1];
   var values = data[2];
 
-  var bar =[{
+  var bar = [{
     x: locations,
     y: values,
     type: "bar",
-    marker:{
+    marker: {
       color: 'rgb(158,202,225)',
       opacity: 1.5,
       line: {
@@ -86,16 +76,9 @@ function ItemChart(data){
   }];
 
   var barshape = {
-        title: name,
-        margin: { top: 80, left: 200 },
-        };
+    title: name,
+    margin: { top: 80, left: 200 },
+  };
 
   Plotly.newPlot("bar", bar, barshape);
 };
-
-
-// To Do
-// creat an on click function that will return the valu attribute of the button that triggerred it
-
-
-

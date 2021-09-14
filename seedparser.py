@@ -29,20 +29,6 @@ def remid(oldstr : str):
 class Seed():
     seed_guid = ''
     seed_json = ''
-    
-    def getSpecial(self):
-        self.playthrough['longest_item_chain'] = str(self.playthrough['longest_item_chain'])
-        return json.dumps(self.playthrough)
-            # "seed_guid" : self.seed_guid,
-            # "special" : str(json.dumps({
-                # "seed_metadata" : self.seed_metadata,
-            # "playthrough" : f'\"{str()}\"'
-                # "starting_gear" : self.starting_gear,
-                # "other_stuff" : self.other_stuff,
-                # "bosses" : self.bosses
-            # }))
-        
-        
 
     def __init__(self, filepath : str):
         self.seed_guid = getGuid(filepath)
@@ -55,21 +41,20 @@ class Seed():
         self.starting_gear = self.seed_json.pop("Equipped")
         self.other_stuff = self.seed_json.pop("Special")
         self.bosses = self.seed_json.pop('Bosses')
-        self.special = self.getSpecial()
+        self.playthrough = json.dumps(self.playthrough)
 
-        self.items = collections.defaultdict(list)
+        # self.items = collections.defaultdict(list)
         self.locations = {}
         for region, dic in self.seed_json.items():
             for key, value in dic.items():
                 self.locations[remid(key)] = remid(value)
-                self.items[remid(value)].extend([remid(key)])
+        #         self.items[remid(value)].extend([remid(key)])
 
-        self.location_map = {}
-        self.reverse_map = {}
+        # self.location_map = {}
+        # self.reverse_map = {}
 
-        for item in self.locations.keys():
-            trimmed = re.sub('\W','', item)
-            # print (f'{trimmed} = Column(String)')
-            self.location_map[item] = trimmed
-            self.reverse_map[trimmed] = item
+        # for item in self.locations.keys():
+        #     trimmed = re.sub('\W','', item)
+        #     self.location_map[item] = trimmed
+        #     self.reverse_map[trimmed] = item
 
