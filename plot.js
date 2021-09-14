@@ -45,7 +45,7 @@ for (row = 1; row < 9; row++){
 
     var item_name = data[counter].name // current item
 
-    $(`#row${row}`).append(`<td class = col-2><button type = "button" value = ${item_name} onclick = "viz2func(this.value)" >${item_name}</button> </td>`)
+    $(`#row${row}`).append(`<td class = col-2><button type = "button" value = ${item_name} onclick = viz2func(this.value) >${item_name}</button> </td>`)
     counter += 1 // incrementing after each column
 
   }
@@ -60,7 +60,7 @@ for (row = 1; row < 9; row++){
 function viz2func(value){
 
   console.log(value)
-  ItemChart(value)
+  updateItemGraph(value)
 
 }
 

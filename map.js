@@ -88,20 +88,9 @@ function updateGraph(locations) {
 }
 
 // function to update item graph
-function updateItemGraph(item) {
-  $.ajax({
-    url: url+'/items',
-    type: 'POST',
-    contentType: 'application/json',
-    dataType: 'json',
-    crossDomain: true,
-    data: JSON.stringify(item),
-    headers: {
-      accept: "application/json",
-      "Access-Control-Allow-Origin":url
-    }
-  }).done(ItemChart).fail(function(jqXHR, textStatus, errorThrown) {
-    console.log("fail: ",textStatus, errorThrown);
+function updateItemGraph(item_name) {
+  d3.json(url+'/items/' + item_name).then(function(data) {
+    ItemChart(data)
   })
 }
 

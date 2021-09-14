@@ -74,16 +74,16 @@ def queryByLocations():
     
 
 
-@app.route('/items')
-def query_viz3():
+@app.route('/items/<item_name>')
+@cross_origin()
+def query_viz3(item_name):
 
-    data = request.json()
     # Begin Session
     session = Session()
 
     # Select all entries from the database
     #text_statement = text(f"SELECT \"{location_name}\" FROM public.\"{tables.Locations.__tablename__}\"")
-    statement = select(func.count(tables.Seeds.location) , tables.Seeds.location).group_by(tables.Seeds.location).filter(tables.Seeds.item.in_(data))
+    statement = select(func.count(tables.Seeds.location) , tables.Seeds.location).group_by(tables.Seeds.location).filter(tables.Seeds.item == item_name)
     results = session.execute(statement)
 
     #var test_data = ["Location_name", ['list of items'], ['list of values']];
@@ -98,7 +98,7 @@ def query_viz3():
 
     session.close()
     # Returning json data
-    return jsonify([data , itemLocations , locationCount])
+    return jsonify([item_name , itemLocations , locationCount])
     
 @app.route('/viz4')
 def query_viz4():
