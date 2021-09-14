@@ -31,16 +31,16 @@ seeds_table = tables.Seeds.__table__
 def makeTables(dropfirst = True):
 
     if dropfirst:
-        locations_table.drop(db, checkfirst=True)
-        items_table.drop(db, checkfirst=True)
-        shops_table.drop(db, checkfirst=True)
-        seeds_table.drop(db, checkfirst=True)
+        # locations_table.drop(db, checkfirst=True)
+        # items_table.drop(db, checkfirst=True)
+        # shops_table.drop(db, checkfirst=True)
+        # seeds_table.drop(db, checkfirst=True)
         special_table.drop(db, checkfirst=True)
 
-    locations_table.create(db)
-    items_table.create(db)
-    shops_table.create(db)
-    seeds_table.create(db)
+    # locations_table.create(db)
+    # items_table.create(db)
+    # shops_table.create(db)
+    # seeds_table.create(db)
     special_table.create(db)
 
     ## Special used Dictionaries, but the fix using HSTORE isn't working 
@@ -59,24 +59,24 @@ def loadSample(maketables = True, dropfirst = False):
 def loadSeed(filepath : str, session : Session):
     seed = seedparser.Seed(filepath)
     
-    session.add(tables.Locations(seed_guid = seed.seed_guid, locations = seed.locations))
-    session.add(tables.Items(seed_guid = seed.seed_guid, items = seed.items))
-    for location, item in seed.locations.items():
-        session.add(tables.Seeds(seed_guid = seed.seed_guid, item = item, location = location))
-    session.add(tables.Special(seed_guid = seed.seed_guid, special = seed.special))
-    for shop in seed.shops:
-        shop_dict = {}
-        shop_dict['name'] = shop['location']
-        shop_dict['type'] = shop['type']
-        shop_dict['item_1'] = shop['item_0']['item']
-        shop_dict['price_1'] = shop['item_0']['price']
-        if 'item_1' in shop.keys():
-            shop_dict['item_2'] = shop['item_1']['item']
-            shop_dict['price_2'] = shop['item_1']['price']
-        if 'item_2' in shop.keys():
-            shop_dict['item_3'] = shop['item_2']['item']
-            shop_dict['price_3'] = shop['item_2']['price']
-        session.add(tables.Shops(seed_guid = seed.seed_guid, shops = shop_dict))
+    # session.add(tables.Locations(seed_guid = seed.seed_guid, locations = seed.locations))
+    # session.add(tables.Items(seed_guid = seed.seed_guid, items = seed.items))
+    # for location, item in seed.locations.items():
+    #     session.add(tables.Seeds(seed_guid = seed.seed_guid, item = item, location = location))
+    session.add(tables.Special(seed_guid = seed.seed_guid, playthrough = seed.special))
+    # for shop in seed.shops:
+    #     shop_dict = {}
+    #     shop_dict['name'] = shop['location']
+    #     shop_dict['type'] = shop['type']
+    #     shop_dict['item_1'] = shop['item_0']['item']
+    #     shop_dict['price_1'] = shop['item_0']['price']
+    #     if 'item_1' in shop.keys():
+    #         shop_dict['item_2'] = shop['item_1']['item']
+    #         shop_dict['price_2'] = shop['item_1']['price']
+    #     if 'item_2' in shop.keys():
+    #         shop_dict['item_3'] = shop['item_2']['item']
+    #         shop_dict['price_3'] = shop['item_2']['price']
+    #     session.add(tables.Shops(seed_guid = seed.seed_guid, shops = shop_dict))
     pass
 
 def loadAllData(folderpath : str, limit = -1, batchsize = 1000, maketables = True, dropfirst = False):

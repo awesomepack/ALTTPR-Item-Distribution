@@ -32,16 +32,16 @@ class Seed():
     
     def getSpecial(self):
         self.playthrough['longest_item_chain'] = str(self.playthrough['longest_item_chain'])
-        return {
-            "seed_guid" : self.seed_guid,
-            "special" : json.dumps({
-                "seed_metadata" : self.seed_metadata,
-                "playthrough" : self.playthrough,
-                "starting_gear" : self.starting_gear,
-                "other_stuff" : self.other_stuff,
-                "bosses" : self.bosses
-            })
-        }
+        return json.dumps(self.playthrough)
+            # "seed_guid" : self.seed_guid,
+            # "special" : str(json.dumps({
+                # "seed_metadata" : self.seed_metadata,
+            # "playthrough" : f'\"{str()}\"'
+                # "starting_gear" : self.starting_gear,
+                # "other_stuff" : self.other_stuff,
+                # "bosses" : self.bosses
+            # }))
+        
         
 
     def __init__(self, filepath : str):

@@ -20,7 +20,7 @@ class Special(base):
     __tablename__ = 'special-info'
     seed_guid = Column(String, primary_key=True)
     # seed_number = Column(Integer)
-    special = Column(String)
+    playthrough = Column(String)
     # seed_metadata = Column(MutableDict.as_mutable(HSTORE))
     # playthrough = Column(MutableDict.as_mutable(HSTORE))
     # starting_gear = Column(MutableDict.as_mutable(HSTORE))

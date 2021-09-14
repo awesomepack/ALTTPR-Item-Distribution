@@ -1,6 +1,7 @@
 
 # importing dependencies
 import json
+import re
 import sqlalchemy
 from sqlalchemy import select, text
 from sqlalchemy.exc import DatabaseError
@@ -33,18 +34,29 @@ with open(regionsFile) as file:
 @app.after_request
 def add_header(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Content-type'] = 'appplication/json'
     return response
 
 # Function to render potential home page with information on API routes
 @app.route('/ALTTPR')
 def home():
-    return 'This route will serve up images'
-
+    response = render_template('../index.html')
+    return response
 
 @app.route('/viz1')
 def query_viz1():
     return jsonify(regionInfo)
+
+@app.route('/playthrough/<seed_guid>')
+def queryPlaythrough(seed_guid):
+    session = Session()
+
+    statement = select(tables.Special.playthrough).filter(tables.Special.seed_guid == seed_guid)
+    results = session.execute(statement).first()
+    data = []
+    for row in results:   
+        data = json.loads(row)
+    session.close()
+    return data
 
 
 @app.route('/regions', methods=["GET","POST"])

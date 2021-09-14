@@ -28,29 +28,34 @@ customMarker = L.CircleMarker.extend({
 
 const url = 'http://localhost:5000'
 
+var locationMap = {
+  "Ganon" : [1200,3010]
+}
+
 function init() {
   d3.json(url+'/viz1').then(function(data) {
     makePins(data)
   })
 }
 
-function drawPlaythrough() { 
-    // var dict = {"Links House": [641,1097], "Hyrule Castle": [1101,1003], "Sahasrahla's Hut": [1107,1625], "Kakariko Tavern": [862,320], "Kakariko Well": [1174,47]
-    // }
+function getPlaythrough(seed_guid) {
+  d3.json(url+'/playthrough/'+seed_guid).then(function(data) {
+    drawPlaythrough(data)
+  })
+}
 
-    // var pointlist = []
-    // for(let k in dict){
-    //   var v = dict[k]; 
-    //   pointlist = pointlist.concat([v])
-    // }
+function drawPlaythrough(playthrough) {
+
+    var pointlist = []
     
-    // var firstpolyline = L.polyline(pointlist, {
-    //   color: 'blue',
-    //   weight: 3,
-    //   opacity: 0.5,
-    //   smoothFactor: 1
-    //   })
-    //   firstpolyline.addTo(map)
+    
+    var firstpolyline = L.polyline(pointlist, {
+      color: 'blue',
+      weight: 3,
+      opacity: 0.5,
+      smoothFactor: 1
+      })
+      firstpolyline.addTo(map)
 }
 
 function makePins(list) {
@@ -96,6 +101,7 @@ function updateItemGraph(item_name) {
 
 function makePin(region) {
   if (region.map_locations) {
+    locationMap[region.region] = getCoords(region.map_locations)
     new customMarker(getCoords(region.map_locations), {
       radius: 6,
       color: 'red',
