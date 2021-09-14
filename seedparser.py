@@ -2,7 +2,8 @@ import collections
 import json
 import re
 
-sample_filepath = 'resources/seeds/alttpr_none_standard_ganon_bJqPVL0byeOBX2K.json'
+sample_folderpath = 'resources/seeds'
+sample_filepath = sample_folderpath + '/alttpr_none_standard_ganon_4jleEwaNQjBJlRA.json'
 
 def getJson(filepath : str):
     with open(filepath) as file:
@@ -30,9 +31,18 @@ class Seed():
     seed_json = ''
     
     def getSpecial(self):
-        # TODO as Enhancement: implement.  Right now Special is not a clean data set
-        ## and not used in the current build.
-        pass
+        self.playthrough['longest_item_chain'] = str(self.playthrough['longest_item_chain'])
+        return json.dumps(self.playthrough)
+            # "seed_guid" : self.seed_guid,
+            # "special" : str(json.dumps({
+                # "seed_metadata" : self.seed_metadata,
+            # "playthrough" : f'\"{str()}\"'
+                # "starting_gear" : self.starting_gear,
+                # "other_stuff" : self.other_stuff,
+                # "bosses" : self.bosses
+            # }))
+        
+        
 
     def __init__(self, filepath : str):
         self.seed_guid = getGuid(filepath)
@@ -45,7 +55,7 @@ class Seed():
         self.starting_gear = self.seed_json.pop("Equipped")
         self.other_stuff = self.seed_json.pop("Special")
         self.bosses = self.seed_json.pop('Bosses')
-        # self.special = self.getSpecial()
+        self.special = self.getSpecial()
 
         self.items = collections.defaultdict(list)
         self.locations = {}

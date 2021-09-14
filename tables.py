@@ -6,7 +6,7 @@ import seedparser
 
 base = declarative_base()
 
-class Location(base):
+class LocationMetadata(base):
     __tablename__ = 'location-metadata'
     location = Column(String, primary_key=True)
     x = Column(Integer)
@@ -19,17 +19,18 @@ class Location(base):
 class Special(base):
     __tablename__ = 'special-info'
     seed_guid = Column(String, primary_key=True)
-    seed_number = Column(Integer)
-    seed_metadata = Column(MutableDict.as_mutable(HSTORE))
-    playthrough = Column(MutableDict.as_mutable(HSTORE))
-    starting_gear = Column(MutableDict.as_mutable(HSTORE))
-    other_stuff = Column(MutableDict.as_mutable(HSTORE))
-    bosses = Column(MutableDict.as_mutable(HSTORE))
+    # seed_number = Column(Integer)
+    playthrough = Column(String)
+    # seed_metadata = Column(MutableDict.as_mutable(HSTORE))
+    # playthrough = Column(MutableDict.as_mutable(HSTORE))
+    # starting_gear = Column(MutableDict.as_mutable(HSTORE))
+    # other_stuff = Column(MutableDict.as_mutable(HSTORE))
+    # bosses = Column(MutableDict.as_mutable(HSTORE))
 
-    def __init__(self, seed_guid : str, special : dict):
-        self.seed_guid = seed_guid
-        for k,v in special.items():
-            setattr(self, k, v)
+    # def __init__(self, seed_guid : str, special : dict):
+    #     self.seed_guid = seed_guid
+    #     for k,v in special.items():
+    #         setattr(self, k, v)
 
 class Shops(base):
     __tablename__ = 'shops'
