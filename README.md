@@ -3,7 +3,7 @@
 
 Members: Jason, Merari, Dinh
 
-Analysis of the distribution of items in the legend of Zelda a link to the past
+Analysis of the distribution of items in [The Legend of Zelda: a Link to the Past VeeTorp Randomizer](https://github.com/sporchia/alttp_vt_randomizer)
 
 ## Loading Sample Data
 
