@@ -23,8 +23,8 @@ Analysis of the distribution of items in [The Legend of Zelda: a Link to the Pas
 
 #### [locations.py](locations.py)
 
-Once you run [locations.py](locations.py) there should be a new table in the `alttpr` database named `location-metadata` with 68 rows of data containing columns for `seed_guid`, `map`, `x` and `y` at a minumum
-No longer used by app.py.   Instead app.py serves the region/location information from [regions.json](resources/regions/regions.json): a hand stitched restructure of the former `location-metadata` database
+~~Once you run [locations.py](locations.py) there should be a new table in the `alttpr` database named `location-metadata` with 68 rows of data containing columns for `seed_guid`, `map`, `x` and `y` at a minumum~~
+##### No longer used by app.py.   Instead app.py serves the region/location information from [regions.json](resources/regions/regions.json): a hand stitched restructure of the former `location-metadata` database
 
 #### [data.py](data.py)
 
